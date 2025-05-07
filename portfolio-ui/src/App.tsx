@@ -1,4 +1,4 @@
-import StartMenu from "./components/StartMenu/StartMenu.tsx";
+import StartMenu from "./components/StartMenu.tsx";
 
 import "./App.css";
 

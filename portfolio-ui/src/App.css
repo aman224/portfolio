@@ -3,28 +3,61 @@ body {
   font-family: "Open Sans", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.root-container {
+.container {
   padding-left: 5%;
   height: 100vh;
-  background-color: rebeccapurple;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 
-.container {
+.grid {
   display: flex;
   flex-wrap: wrap;
   gap: 0.3rem;
 }
 
 .header {
-  font-size: 2.8rem;
-  font-family: "Open Sans", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-weight: 300;
-  align-self: flex-start;
+  /* align-self: flex-start; */
+  width: 100%;
   margin-bottom: 5vh;
+  display: flex;
+  justify-content: space-between !important;
+  align-items: center;
+  height: 6vh;
+}
+
+.heading {
+  font-size: 2.8rem;
+}
+
+.profile {
+  font-size: 1.8rem;
+  margin-right: 5vh;
+  display: flex;
+  gap: 0.3rem;
+  height: inherit;
+}
+
+.profile-name {
+  text-align: right;
+}
+
+.profile-name-primary {
+  line-height: 1.5rem;
+}
+
+.profile-name-sub {
+  font-size: 1.2rem;
+}
+
+.profile-pic {
+  text-align: center;
+  align-items: center;
+  height: inherit;
+  margin-left: 1vh;
 }
 
 .elem {

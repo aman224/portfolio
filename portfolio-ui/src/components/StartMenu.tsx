@@ -1,9 +1,11 @@
+import Header from "./Header";
+
 function StartMenu() {
   return (
     <>
-      <div className="root-container">
-        <div className="header">Aman Ottakandathil</div>
-        <div className="container">
+      <div className="container">
+        <Header />
+        <div className="grid">
           <div className="elem big">Resume</div>
           <div className="elem small">Projects</div>
           <div className="elem big">Education</div>
