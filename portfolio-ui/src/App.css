@@ -12,15 +12,8 @@ body {
   align-items: flex-start;
 }
 
-.grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.3rem;
-}
-
 .header {
   font-weight: 300;
-  /* align-self: flex-start; */
   width: 100%;
   margin-bottom: 5vh;
   display: flex;
@@ -61,16 +54,50 @@ body {
 }
 
 .elem {
-  height: 20vh;
+  height: 21vh;
   background-color: green;
-  align-content: center;
-  text-align: center;
+  align-content: end;
+  text-align: left;
+  box-sizing: border-box;
+  padding: 0.5rem;
+  font-size: 0.8em;
 }
 
 .big {
-  width: 42vh;
+  width: 42.5vh;
 }
 
 .small {
-  width: 20vh;
+  width: 21vh;
+}
+
+.sections-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2vh;
+  width: 100%;
+  min-height: 0;
+}
+
+.section-grid {
+  margin: 1px;
+  flex-direction: column;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5vh;
+  width: fit-content;
+}
+
+.two-elem-grid {
+  display: flex;
+  gap: 0.5vh;
+}
+
+.section-title {
+  font-size: 1em;
+  margin: 0;
+  padding: 0;
+  font-weight: 300;
+  min-height: 1.5rem;
 }
