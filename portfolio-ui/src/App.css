@@ -53,24 +53,6 @@ body {
   margin-left: 1vh;
 }
 
-.elem {
-  height: 21vh;
-  background-color: green;
-  align-content: end;
-  text-align: left;
-  box-sizing: border-box;
-  padding: 0.5rem;
-  font-size: 0.8em;
-}
-
-.big {
-  width: 42.5vh;
-}
-
-.small {
-  width: 21vh;
-}
-
 .sections-container {
   display: flex;
   flex-direction: row;
@@ -100,4 +82,19 @@ body {
   padding: 0;
   font-weight: 300;
   min-height: 1.5rem;
+}
+
+.elem img {
+  width: 100%;
+  padding: 0;
+}
+
+.tile {
+  height: 21vh;
+  background-color: green;
+  align-content: end;
+  text-align: left;
+  box-sizing: border-box;
+  padding: 0.5rem;
+  font-size: 0.8em;
 }

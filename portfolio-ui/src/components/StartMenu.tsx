@@ -1,4 +1,5 @@
 import Header from "./Header";
+import AppTile from "./AppTile";
 
 function StartMenu() {
   return (
@@ -8,32 +9,30 @@ function StartMenu() {
         <div className="sections-container">
           <div className="section-grid">
             <h2 className="section-title"></h2>
-            <div className="elem big">About Me</div>
+            <AppTile size="big" title="About Me" />
             <div className="two-elem-grid">
-              <div className="elem small">LinkedIn</div>
-              <div className="elem small">GitHub</div>
+              <AppTile size="small" title="Linkedin" />
+              <AppTile size="small" title="GitHub" />
             </div>
-            <div className="elem big">CV</div>
+            <AppTile size="big" title="CV" />
           </div>
           <div className="section-grid">
             <h2 className="section-title">Projects</h2>
-            <div className="elem big">Leap Analysis</div>
-            <div className="elem big">Distributed Tracing Framework</div>
+            <AppTile size="big" title="Leap Analysis" />
+            <AppTile size="big" title="Distributed Tracing Framework" />
             <div className="two-elem-grid">
-              <div className="elem small">Terminal Text Editor</div>
-              <div className="elem small">Project Management Website</div>
+              <AppTile size="small" title="Terminal Text Editor" />
+              <AppTile size="small" title="Project Management Website" />
             </div>
           </div>
           <div className="section-grid">
             <h2 className="section-title">Work Experience</h2>
-            <div className="elem big">Dexlock Technologies</div>
+            <AppTile size="big" title="Dexlock Technologies" />
           </div>
           <div className="section-grid">
             <h2 className="section-title">Education</h2>
-            <div className="elem big">
-              <div className="elem-text">The University Of Leeds</div>
-            </div>
-            <div className="elem big">Government Model Engineering College</div>
+            <AppTile size="big" title="The University Of Leeds" />
+            <AppTile size="big" title="Government Model Engineering College" />
           </div>
         </div>
       </div>
