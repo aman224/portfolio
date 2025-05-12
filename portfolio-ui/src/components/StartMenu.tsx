@@ -1,42 +1,41 @@
 import Header from "./Header";
 import AppTile from "./AppTile";
+import SubGrid from "./SubGrid";
+import Section from "./Section";
 
 function StartMenu() {
   return (
-    <>
-      <div className="container">
-        <Header />
-        <div className="sections-container">
-          <div className="section-grid">
-            <h2 className="section-title"></h2>
-            <AppTile size="big" title="About Me" />
-            <div className="two-elem-grid">
-              <AppTile size="small" title="Linkedin" />
-              <AppTile size="small" title="GitHub" />
-            </div>
-            <AppTile size="big" title="CV" />
-          </div>
-          <div className="section-grid">
-            <h2 className="section-title">Projects</h2>
-            <AppTile size="big" title="Leap Analysis" />
-            <AppTile size="big" title="Distributed Tracing Framework" />
-            <div className="two-elem-grid">
-              <AppTile size="small" title="Terminal Text Editor" />
-              <AppTile size="small" title="Project Management Website" />
-            </div>
-          </div>
-          <div className="section-grid">
-            <h2 className="section-title">Work Experience</h2>
-            <AppTile size="big" title="Dexlock Technologies" />
-          </div>
-          <div className="section-grid">
-            <h2 className="section-title">Education</h2>
-            <AppTile size="big" title="The University Of Leeds" />
-            <AppTile size="big" title="Government Model Engineering College" />
-          </div>
-        </div>
+    <div className="container">
+      <Header />
+      <div className="sections-container">
+        <Section title="">
+          <AppTile size="big" title="About Me" />
+          <SubGrid>
+            <AppTile size="small" title="Linkedin" />
+            <AppTile size="small" title="GitHub" />
+          </SubGrid>
+          <AppTile size="big" title="CV" />
+        </Section>
+
+        <Section title="Projects">
+          <AppTile size="big" title="Leap Analysis" />
+          <AppTile size="big" title="Distributed Tracing Framework" />
+          <SubGrid>
+            <AppTile size="small" title="Terminal Text Editor" />
+            <AppTile size="small" title="Project Management Website" />
+          </SubGrid>
+        </Section>
+
+        <Section title="Work Experience">
+          <AppTile size="big" title="Dexlock Technologies" />
+        </Section>
+
+        <Section title="Education">
+          <AppTile size="big" title="The University Of Leeds" />
+          <AppTile size="big" title="Government Model Engineering College" />
+        </Section>
       </div>
-    </>
+    </div>
   );
 }
 
