@@ -5,9 +5,9 @@ import Section from "./Section";
 
 function StartMenu() {
   return (
-    <div className="container">
+    <div className="root-container w-full">
       <Header />
-      <div className="sections-container">
+      <div className="sections-container justify-center sm:justify-start">
         <Section title="">
           <AppTile size="big" title="About Me" />
           <SubGrid>
@@ -28,6 +28,7 @@ function StartMenu() {
 
         <Section title="Work Experience">
           <AppTile size="big" title="Dexlock Technologies" />
+          <AppTile size="big" title="Cloudium Software" />
         </Section>
 
         <Section title="Education">
