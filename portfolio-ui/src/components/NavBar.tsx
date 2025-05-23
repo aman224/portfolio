@@ -3,18 +3,24 @@ import CodeRoundedIcon from "@mui/icons-material/CodeRounded";
 import SchoolRoundedIcon from "@mui/icons-material/SchoolRounded";
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
+import WorkRoundedIcon from "@mui/icons-material/WorkRounded";
+import EmailRoundedIcon from "@mui/icons-material/EmailRounded";
 
 function NavBar() {
   const iconSize = "medium";
 
   return (
-    <div className="sidenav">
-      <div className="nav-elem nav-search rounded-lg">
-        <SearchRoundedIcon fontSize="large" />
+    <nav id="sidenav">
+      <div className="nav-elem nav-search rounded-xl">
+        <SearchRoundedIcon fontSize={iconSize} />
       </div>
       <div className="nav-elem">
         <HomeRoundedIcon fontSize={iconSize} />
         <p>Home</p>
+      </div>
+      <div className="nav-elem">
+        <WorkRoundedIcon fontSize={iconSize} />
+        <p>Experience</p>
       </div>
       <div className="nav-elem">
         <CodeRoundedIcon fontSize={iconSize} />
@@ -24,11 +30,15 @@ function NavBar() {
         <SchoolRoundedIcon fontSize={iconSize} />
         <p>Education</p>
       </div>
+      <div className="nav-elem">
+        <EmailRoundedIcon fontSize={iconSize} />
+        <p>Contact</p>
+      </div>
       <div className="nav-elem justify-end">
         <InfoOutlinedIcon fontSize={iconSize} />
         <p>About</p>
       </div>
-    </div>
+    </nav>
   );
 }
 
