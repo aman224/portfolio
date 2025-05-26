@@ -8,7 +8,7 @@ function HomeSocials() {
 
   return (
     <div className="home-socials">
-      <div className="home-socials-item shadow-2xl">
+      <div className="home-socials-item">
         <div className="home-socials-item-icon">
           <ContactPageRoundedIcon fontSize={iconSize} />
         </div>

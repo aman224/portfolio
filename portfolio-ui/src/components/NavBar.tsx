@@ -1,46 +1,26 @@
-import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
-import CodeRoundedIcon from "@mui/icons-material/CodeRounded";
-import SchoolRoundedIcon from "@mui/icons-material/SchoolRounded";
-import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
-import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
-import WorkRoundedIcon from "@mui/icons-material/WorkRounded";
-import EmailRoundedIcon from "@mui/icons-material/EmailRounded";
 import LightModeRoundedIcon from "@mui/icons-material/LightModeRounded";
+import { useContext } from "react";
+import { ThemeContext } from "./ThemeContext";
+import { DarkModeRounded } from "@mui/icons-material";
+import { navItems } from "../constants/navItems";
 
 function NavBar() {
   const iconSize = "medium";
+  const { theme, toggleTheme } = useContext(ThemeContext);
+
+  const ThemeSwitcherIcon =
+    theme === "dark" ? LightModeRoundedIcon : DarkModeRounded;
 
   return (
     <nav id="sidenav">
-      <div className="nav-elem nav-search">
-        <SearchRoundedIcon fontSize={iconSize} />
-      </div>
-      <div className="nav-elem">
-        <HomeRoundedIcon fontSize={iconSize} />
-        <p>Home</p>
-      </div>
-      <div className="nav-elem">
-        <WorkRoundedIcon fontSize={iconSize} />
-        <p>Experience</p>
-      </div>
-      <div className="nav-elem">
-        <CodeRoundedIcon fontSize={iconSize} />
-        <p>Projects</p>
-      </div>
-      <div className="nav-elem">
-        <SchoolRoundedIcon fontSize={iconSize} />
-        <p>Education</p>
-      </div>
-      <div className="nav-elem">
-        <EmailRoundedIcon fontSize={iconSize} />
-        <p>Contact</p>
-      </div>
-      <div className="nav-elem">
-        <InfoOutlinedIcon fontSize={iconSize} />
-        <p>About</p>
-      </div>
+      {navItems.map((item) => (
+        <div className="nav-elem" key={item.title}>
+          <item.icon fontSize={iconSize} />
+          <p>{item.title}</p>
+        </div>
+      ))}
       <div className="nav-elem nav-mode-switcher">
-        <LightModeRoundedIcon fontSize={iconSize} />
+        <ThemeSwitcherIcon fontSize={iconSize} onClick={toggleTheme} />
       </div>
     </nav>
   );
