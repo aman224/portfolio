@@ -8,6 +8,7 @@ import Home from "./components/Home";
 import { ThemeContext } from "./components/ThemeContext";
 
 import { useState } from "react";
+import WorkExperience from "./components/WorkExperience";
 
 function App() {
   const [theme, setTheme] = useState("dark");
@@ -20,7 +21,10 @@ function App() {
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <div className="app-container" id={theme}>
         <NavBar />
-        <Home />
+        <div className="content">
+          <Home />
+          <WorkExperience />
+        </div>
       </div>
     </ThemeContext.Provider>
   );

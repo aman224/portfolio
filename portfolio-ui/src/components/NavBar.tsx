@@ -14,10 +14,10 @@ function NavBar() {
   return (
     <nav id="sidenav">
       {navItems.map((item) => (
-        <div className="nav-elem" key={item.title}>
+        <div className="nav-item" key={item.title}>
           <div
             className={
-              "nav-elem-icon" +
+              "nav-item-icon" +
               (item.title === "Home" ? " nav-item-selected" : "")
             }
           >
