@@ -1,5 +1,5 @@
 import LightModeRoundedIcon from "@mui/icons-material/LightModeRounded";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { ThemeContext } from "./ThemeContext";
 import { DarkModeRounded } from "@mui/icons-material";
 import { navItems } from "../constants/navItems";
@@ -15,7 +15,14 @@ function NavBar() {
     <nav id="sidenav">
       {navItems.map((item) => (
         <div className="nav-elem" key={item.title}>
-          <item.icon fontSize={iconSize} />
+          <div
+            className={
+              "nav-elem-icon" +
+              (item.title === "Home" ? " nav-item-selected" : "")
+            }
+          >
+            <item.icon fontSize={iconSize} />
+          </div>
           <p>{item.title}</p>
         </div>
       ))}

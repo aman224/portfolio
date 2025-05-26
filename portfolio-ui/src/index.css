@@ -1,3 +1,6 @@
+@import url(./styles/dark.css);
+@import url(./styles/light.css);
+
 body {
   margin: 0;
   padding: 0;
