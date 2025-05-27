@@ -1,9 +1,5 @@
 @import "tailwindcss";
 
-body {
-  background-color: var(--md-sys-color-surface-container-lowest);
-}
-
 .app-container {
   display: grid;
   grid-template-columns: 5.5rem 1fr;
@@ -14,6 +10,7 @@ body {
   background-color: var(--md-sys-color-surface-container-lowest);
 
   --border-radius: 1rem;
+  --container-padding: 1.5rem;
 }
 
 #sidenav {
@@ -77,10 +74,9 @@ body {
 
 .content {
   padding: 0.75rem;
-
   grid-column: 2 / 3;
-
   overflow-y: scroll;
+  color: var(--md-sys-color-on-surface);
 }
 
 .home-container {
@@ -188,4 +184,60 @@ body {
 .home-socials-item:hover {
   background-color: var(--md-sys-color-secondary-container);
   color: var(--md-sys-color-on-secondary-container);
+}
+
+.section-container {
+  padding: 0 5rem;
+  margin: 2rem 0;
+}
+
+.section-heading {
+  font-size: 2.5em;
+  font-weight: 500;
+  margin: 2rem 0;
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+
+  border-radius: var(--border-radius);
+}
+
+.card {
+  background-color: var(--md-sys-color-surface-container);
+  border-radius: var(--border-radius);
+  padding: var(--container-padding);
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.card-header {
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+  h3 {
+    font-size: 1rem;
+    color: var(--md-sys-color-secondary);
+  }
+}
+
+.card-text {
+  font-size: 1rem;
+}
+
+.card-sub-section {
+  h4 {
+    font-weight: 500;
+    color: var(--md-sys-color-primary);
+  }
+}
+
+.stack-icon {
+  width: 2.5rem;
+  margin: 0.33rem;
 }

@@ -2,7 +2,7 @@ import LightModeRoundedIcon from "@mui/icons-material/LightModeRounded";
 import { useContext, useState } from "react";
 import { ThemeContext } from "./ThemeContext";
 import { DarkModeRounded } from "@mui/icons-material";
-import { navItems } from "../constants/navItems";
+import { navItems } from "../constants";
 
 function NavBar() {
   const iconSize = "medium";
