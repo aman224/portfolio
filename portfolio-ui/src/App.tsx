@@ -9,6 +9,7 @@ import { ThemeContext } from "./components/ThemeContext";
 
 import { useState } from "react";
 import WorkExperience from "./components/WorkExperience";
+import Projects from "./components/Projects";
 
 function App() {
   const [theme, setTheme] = useState("dark");
@@ -24,6 +25,7 @@ function App() {
         <div className="content">
           <Home />
           <WorkExperience />
+          <Projects />
         </div>
       </div>
     </ThemeContext.Provider>

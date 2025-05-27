@@ -77,4 +77,55 @@ const workExp = [
   },
 ];
 
-export { workExp, navItems };
+const projects = [
+  {
+    title: "Leap Analysis",
+    description: "TBD",
+    stack: [
+      "java",
+      "python",
+      "js",
+      "reactjs",
+      "nodejs",
+      "spring",
+      "aws",
+      "docker",
+      "mongodb",
+      "kibana",
+      "apache",
+      "gitlab",
+      "jira",
+    ],
+  },
+  {
+    title: "Distributed Tracing Framework",
+    description: "TBD",
+    stack: [
+      "java",
+      "spring",
+      "azure",
+      "docker",
+      "kubernetes",
+      "mongodb",
+      "github",
+      "grafana",
+    ],
+  },
+  {
+    title: "Project Management System",
+    description: "TBD",
+    stack: ["js", "reactjs", "nodejs", "mongodb", "figma"],
+  },
+  {
+    title: "Terminal Text Editor",
+    description: "TBD",
+    stack: ["java"],
+  },
+  {
+    title: "Portfolio (This One)",
+    description: "TBD",
+    stack: ["js", "react", "java", "spring", "github", "materialui", "figma"],
+  },
+];
+
+export { workExp, navItems, projects };
