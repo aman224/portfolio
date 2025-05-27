@@ -12,7 +12,7 @@ function HomeSocials() {
         <div className="home-socials-item-icon">
           <ContactPageRoundedIcon fontSize={iconSize} />
         </div>
-        <div className="home-socials-item-text">Resume</div>
+        <div className="home-socials-item-text socials-resume-text">Resume</div>
       </div>
       <div className="home-socials-item">
         <div className="home-socials-item-icon">
