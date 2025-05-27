@@ -1,7 +1,7 @@
 function WorkExperience() {
   return (
     <div className="work-exp-container">
-      <h1>Projects</h1>
+      <h1 className="section-title">Projects</h1>
       <div className="work-exp-title">Dexlock Technologies</div>
       <div className="work-exp-text">
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit non unde

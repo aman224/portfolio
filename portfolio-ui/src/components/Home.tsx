@@ -3,7 +3,7 @@ import QuickLinks from "./QuickLInks";
 
 function Home() {
   return (
-    <div className="home-content">
+    <div className="home-container">
       <div className="header">
         <h1 className="header-title">Hey, I'm Aman</h1>
         <p className="header-subtext">
