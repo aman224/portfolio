@@ -48,5 +48,6 @@
   --md-sys-color-surface-container: rgb(233 239 239);
   --md-sys-color-surface-container-high: rgb(227 233 233);
   --md-sys-color-surface-container-highest: rgb(221 228 227);
-  --md-sys-color-on-image: rgb(0, 0, 0);
+
+  --background-image: url(../assets/background-light.jpg);
 }
