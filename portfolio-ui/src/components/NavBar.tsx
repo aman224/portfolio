@@ -30,7 +30,7 @@ function NavBar() {
           <p>{item.title}</p>
         </div>
       ))}
-      <div className="nav-elem nav-mode-switcher">
+      <div className="nav-item nav-mode-switcher">
         <ThemeSwitcherIcon fontSize={iconSize} onClick={toggleTheme} />
       </div>
     </nav>

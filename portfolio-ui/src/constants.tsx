@@ -62,12 +62,12 @@ const workExp = [
     awardDescription:
       "Awarded for outstanding contributions and top performance in Q4 2021",
   },
-  {
-    company: "Leeds University Union",
-    role: "Bars and Venues Assistant & Supervisor",
-    description: "TBD",
-    stack: [],
-  },
+  // {
+  //   company: "Leeds University Union",
+  //   role: "Bars and Venues Assistant & Supervisor",
+  //   description: "TBD",
+  //   stack: [],
+  // },
   {
     company: "Cloudium Technologies",
     role: "Backend Developer",

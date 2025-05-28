@@ -9,28 +9,20 @@ function HomeSocials() {
   return (
     <div className="home-socials">
       <div className="home-socials-item">
-        <div className="home-socials-item-icon">
-          <ContactPageRoundedIcon fontSize={iconSize} />
-        </div>
-        <div className="home-socials-item-text socials-resume-text">Resume</div>
+        <ContactPageRoundedIcon fontSize={iconSize} />
+        <h3 className="home-socials-item-text socials-resume-text">Resume</h3>
       </div>
       <div className="home-socials-item">
-        <div className="home-socials-item-icon">
-          <LinkedInIcon fontSize={iconSize} />
-        </div>
-        <div className="home-socials-item-text">LinkedIn</div>
+        <LinkedInIcon fontSize={iconSize} />
+        <h3 className="home-socials-item-text">LinkedIn</h3>
       </div>
       <div className="home-socials-item">
-        <div className="home-socials-item-icon">
-          <GitHubIcon fontSize={iconSize} />
-        </div>
-        <div className="home-socials-item-text">GitHub</div>
+        <GitHubIcon fontSize={iconSize} />
+        <h3 className="home-socials-item-text">GitHub</h3>
       </div>
       <div className="home-socials-item">
-        <div className="home-socials-item-icon">
-          <EmailRoundedIcon fontSize={iconSize} />
-        </div>
-        <div className="home-socials-item-text">Email</div>
+        <EmailRoundedIcon fontSize={iconSize} />
+        <h3 className="home-socials-item-text">Email</h3>
       </div>
     </div>
   );

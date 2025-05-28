@@ -17,10 +17,8 @@
     "@emotion/styled": "^11.14.0",
     "@mui/icons-material": "^7.1.0",
     "@mui/material": "^7.1.0",
-    "@tailwindcss/vite": "^4.1.7",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "tailwindcss": "^4.1.7",
     "tech-stack-icons": "^2.1.0",
     "use-local-storage": "^3.0.0"
   },
