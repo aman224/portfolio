@@ -15,7 +15,8 @@ function NavBar() {
   return (
     <nav id="sidenav">
       <div className="nav-menu-icon">
-        <MenuRoundedIcon fontSize="large" />
+        <MenuRoundedIcon fontSize={iconSize} />
+        <h3>AO</h3>
       </div>
       {navItems.map((item) => (
         <div className="nav-item" key={item.title}>
