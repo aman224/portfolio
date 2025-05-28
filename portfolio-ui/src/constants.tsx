@@ -124,7 +124,7 @@ const projects = [
   {
     title: "Portfolio (This One)",
     description: "TBD",
-    stack: ["js", "react", "java", "spring", "github", "materialui", "figma"],
+    stack: ["js", "reactjs", "java", "spring", "github", "materialui", "figma"],
   },
 ];
 
