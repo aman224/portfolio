@@ -306,4 +306,16 @@
   .socials-resume-text {
     display: block;
   }
+
+  .section-container {
+    padding: 0;
+  }
+
+  .section-heading {
+    text-align: center;
+  }
+
+  .card-container {
+    grid-template-columns: 1fr;
+  }
 }
