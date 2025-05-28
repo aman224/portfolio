@@ -4,7 +4,6 @@ import SchoolRoundedIcon from "@mui/icons-material/SchoolRounded";
 import InfoRoundedIcon from "@mui/icons-material/InfoRounded";
 import WorkRoundedIcon from "@mui/icons-material/WorkRounded";
 import EmailRoundedIcon from "@mui/icons-material/EmailRounded";
-import TechStack from "./components/TechStack";
 
 const navItems = [
   {

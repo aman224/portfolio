@@ -1,6 +1,6 @@
 import LightModeRoundedIcon from "@mui/icons-material/LightModeRounded";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { ThemeContext } from "./ThemeContext";
 import { DarkModeRounded } from "@mui/icons-material";
 import { navItems } from "../constants";
