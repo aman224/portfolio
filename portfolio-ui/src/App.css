@@ -207,6 +207,8 @@
   border-radius: 50%;
   cursor: pointer;
 
+  aspect-ratio: 1 / 1;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -387,10 +389,6 @@
     gap: 0.5rem;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     align-content: center;
-  }
-
-  .home-socials-item {
-    border-radius: var(--border-radius);
   }
 
   .home-socials-item-text {
