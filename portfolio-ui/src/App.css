@@ -6,14 +6,15 @@
   height: 100vh;
 
   background-color: var(--md-sys-color-surface-container-lowest);
+  color: var(--md-sys-color-on-surface);
 
   --border-radius: 1.5rem;
 
   --container-padding: 1.5rem;
 
   --title-font-settings: "wdth" 145, "wght" 800;
-  --title-font-settings-alt: "wdth" 115, "GRAD" 150;
-  --sub-title-font-settings: "wdth" 125, "GRAD" 150, "wght" 500;
+  --title-font-settings-alt: "wdth" 115, "wght" 475;
+  --sub-title-font-settings: "wdth" 125, "wght" 600;
 }
 
 #sidenav {
@@ -139,6 +140,7 @@
   font-size: 1.25rem;
   max-width: 768px;
   font-weight: 475;
+  font-variation-settings: var(--title-font-settings-alt);
 }
 
 .home-primary-section {
@@ -342,10 +344,6 @@
     background-size: cover;
     border-radius: var(--border-radius);
     background-image: var(--background-image);
-  }
-
-  .home-secondary-section {
-    gap: 0.5rem;
   }
 
   .header {
