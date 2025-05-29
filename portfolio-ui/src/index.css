@@ -4,14 +4,36 @@
 body {
   margin: 0;
   padding: 0;
+
+  *,
+  ::after,
+  ::before,
+  ::backdrop {
+    box-sizing: border-box;
+    border: 0 solid;
+    margin: 0;
+    padding: 0;
+  }
+
+  img,
+  svg,
+  video,
+  canvas,
+  audio,
+  iframe,
+  embed,
+  object {
+    display: block;
+    vertical-align: middle;
+  }
 }
 
 :root {
-  font-family: Inter, "Noto Sans", Roboto, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Roboto Flex", Roboto, Arial, sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
   line-height: 1.5;
-  font-weight: 400;
+  font-variation-settings: "wdth" 100;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;

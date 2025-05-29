@@ -1,8 +1,9 @@
 import LightModeRoundedIcon from "@mui/icons-material/LightModeRounded";
-import { useContext, useState } from "react";
+import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
+import { useContext } from "react";
 import { ThemeContext } from "./ThemeContext";
 import { DarkModeRounded } from "@mui/icons-material";
-import { navItems } from "../constants/navItems";
+import { navItems } from "../constants";
 
 function NavBar() {
   const iconSize = "medium";
@@ -13,11 +14,15 @@ function NavBar() {
 
   return (
     <nav id="sidenav">
+      <div className="nav-menu-header">
+        <MenuRoundedIcon fontSize={iconSize} />
+        <h3>AO</h3>
+      </div>
       {navItems.map((item) => (
-        <div className="nav-elem" key={item.title}>
+        <div className="nav-item" key={item.title}>
           <div
             className={
-              "nav-elem-icon" +
+              "nav-item-icon" +
               (item.title === "Home" ? " nav-item-selected" : "")
             }
           >
@@ -26,7 +31,7 @@ function NavBar() {
           <p>{item.title}</p>
         </div>
       ))}
-      <div className="nav-elem nav-mode-switcher">
+      <div className="nav-item nav-mode-switcher">
         <ThemeSwitcherIcon fontSize={iconSize} onClick={toggleTheme} />
       </div>
     </nav>

@@ -3,17 +3,25 @@ import QuickLinks from "./QuickLInks";
 
 function Home() {
   return (
-    <div className="home-content">
-      <div className="header">
-        <h1 className="header-title">Hey, I'm Aman</h1>
-        <p className="header-subtext">
-          A Software Engineer passionate about building and deploying web
-          applications on AWS and Azure. I excel in agile teams to deliver
-          solutions, resolve complex challenges, and optimize infrastructure.
-        </p>
+    <div className="home-container">
+      <div className="home-primary-section">
+        <div className="header">
+          <h1 className="header-title">
+            <span className="header-title-pre">HEY, I'M </span>
+            <span className="header-title-name">AMAN</span>
+          </h1>
+          <div className="header-subtext">
+            <p>
+              I'm a software Engineer and I love solving technical problems and
+              building/deploying web application on the cloud
+            </p>
+          </div>
+        </div>
       </div>
-      <QuickLinks />
-      <HomeSocials />
+      <div className="home-secondary-section">
+        <QuickLinks />
+        <HomeSocials />
+      </div>
     </div>
   );
 }
