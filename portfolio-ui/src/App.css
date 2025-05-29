@@ -221,6 +221,11 @@
   color: var(--md-sys-color-on-secondary-container);
 }
 
+.home-socials-item-text {
+  display: none;
+  font-variation-settings: var(--sub-title-font-settings);
+}
+
 .section-container {
   padding: 0 5rem;
   margin-top: 4rem;
@@ -360,11 +365,20 @@
   }
 
   .home-socials {
+    background-color: var(--md-sys-color-surface-container);
     gap: 0.5rem;
+    width: 100%;
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    grid-template-columns: 2.5fr 2fr 1fr 1fr;
+  }
+
+  .home-socials-item {
+    border-radius: var(--border-radius);
   }
 
   .home-socials-item-text {
-    display: none;
+    display: block;
   }
 
   .socials-resume-text {
