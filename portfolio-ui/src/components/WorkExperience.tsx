@@ -1,11 +1,16 @@
+import type { RefObject } from "react";
 import { workExp } from "../constants";
 import Card from "./Card";
 import Section from "./Section";
 import SubSection from "./SubSection";
 
-function WorkExperience() {
+interface WorkExperienceProps {
+  ref?: RefObject<HTMLDivElement | null>;
+}
+
+function WorkExperience({ ref }: WorkExperienceProps) {
   return (
-    <Section title="Work Experience">
+    <Section title="Work Experience" ref={ref}>
       {workExp.map((exp) => (
         <Card
           key={exp.company}

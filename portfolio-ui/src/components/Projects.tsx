@@ -1,11 +1,16 @@
+import type { RefObject } from "react";
 import { projects } from "../constants";
 import Card from "./Card";
 import Section from "./Section";
 import TechStack from "./TechStack";
 
-function Projects() {
+interface ProjectsProps {
+  ref?: RefObject<HTMLDivElement | null>;
+}
+
+function Projects({ ref }: ProjectsProps) {
   return (
-    <Section title="Projects">
+    <Section title="Projects" ref={ref}>
       {projects.map((project) => (
         <Card
           key={project.title}
