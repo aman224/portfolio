@@ -9,6 +9,12 @@ function QuickLinks() {
       <div className="quick-links-item">
         <p>View my Projects</p>
       </div>
+      <div className="quick-links-item">
+        <p>Read my Resume</p>
+      </div>
+      <div className="quick-links-item">
+        <p>Learn more About me</p>
+      </div>
     </div>
   );
 }

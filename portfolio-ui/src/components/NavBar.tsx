@@ -14,7 +14,7 @@ function NavBar() {
 
   return (
     <nav id="sidenav">
-      <div className="nav-menu-icon">
+      <div className="nav-menu-header">
         <MenuRoundedIcon fontSize={iconSize} />
         <h3>AO</h3>
       </div>
