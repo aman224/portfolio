@@ -8,19 +8,22 @@ function HomeSocials() {
 
   return (
     <div className="home-socials">
-      <div className="home-socials-item">
-        <LinkedInIcon fontSize={iconSize} />
-        <h3 className="home-socials-item-text">LinkedIn</h3>
+      <div className="home-socials-title">
+        <h2>SOCIAL'S</h2>
       </div>
-      <div className="home-socials-item">
-        <GitHubIcon fontSize={iconSize} />
-        <h3 className="home-socials-item-text">GitHub</h3>
-      </div>
-      <div className="home-socials-item">
-        <EmailRoundedIcon fontSize={iconSize} />
-      </div>
-      <div className="home-socials-item">
-        <InstagramIcon fontSize={iconSize} />
+      <div className="home-socials-content">
+        <div className="home-socials-item">
+          <LinkedInIcon fontSize={iconSize} />
+        </div>
+        <div className="home-socials-item">
+          <GitHubIcon fontSize={iconSize} />
+        </div>
+        <div className="home-socials-item">
+          <EmailRoundedIcon fontSize={iconSize} />
+        </div>
+        <div className="home-socials-item">
+          <InstagramIcon fontSize={iconSize} />
+        </div>
       </div>
     </div>
   );
