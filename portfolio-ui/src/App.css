@@ -316,10 +316,6 @@
   }
 }
 
-.about-content {
-  text-align: justify;
-}
-
 @media screen and (max-width: 768px) {
   .app-container {
     grid-template-rows: 4rem 1fr;
