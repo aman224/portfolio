@@ -14,9 +14,10 @@
 
   --font-settings-title: "wdth" 145, "wght" 800;
   --font-settings-title-sub: "wdth" 125, "wght" 600;
-  --font-settings-text: "wdth" 115, "wght" 475;
+  --font-settings-title-text: "wdth" 115, "wght" 475;
+  --font-settings-text: "wdth" 115, "wght" 400;
 
-  font-variation-settings: var(--font-settings-text);
+  font-variation-settings: var(--font-settings-title-text);
 }
 
 #sidenav {
@@ -309,6 +310,8 @@
   gap: 1rem;
   align-items: center;
   justify-content: center;
+
+  font-variation-settings: var(--font-settings-text);
 
   img {
     border-radius: var(--border-radius);
