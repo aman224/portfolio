@@ -52,7 +52,7 @@ function App() {
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <ScrollContext.Provider value={scrollContext}>
-        <div className="app-container" id={theme} ref={homeRef}>
+        <div className="app-container" id={theme}>
           <NavBar />
           <div className="content" ref={homeRef}>
             <Home />
