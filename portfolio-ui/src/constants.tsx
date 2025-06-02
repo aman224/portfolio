@@ -127,4 +127,19 @@ const projects = [
   },
 ];
 
-export { workExp, navItems, projects };
+const education = [
+  {
+    title: "University of Leeds",
+    course: "MSc Advanced Computer Science (Cloud Computing)",
+    location: "Leeds, United Kingdom",
+    grade: "Distinction (Grade: 8.1)",
+  },
+  {
+    title: "Government Model Engineering College",
+    course: "BTech Computer Science and Engineering",
+    location: "Kerala, India",
+    grade: "First-Class Honours (CGPA: 8.36)",
+  },
+];
+
+export { workExp, navItems, projects, education };

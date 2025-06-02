@@ -12,7 +12,7 @@ import WorkExperience from "./components/WorkExperience";
 import Projects from "./components/Projects";
 import { ScrollContext } from "./contexts/ScrollContext";
 import { useRef } from "react";
-import { HomeWork } from "@mui/icons-material";
+import Education from "./components/Education";
 
 function App() {
   const [theme, setTheme] = useLocalStorage("theme", "dark");
@@ -24,6 +24,7 @@ function App() {
   const homeRef = useRef<HTMLDivElement>(null);
   const workExpRef = useRef<HTMLDivElement>(null);
   const projectsRef = useRef<HTMLDivElement>(null);
+  const educationRef = useRef<HTMLDivElement>(null);
 
   const scrollToSection = (ref: React.RefObject<HTMLDivElement | null>) => {
     if (ref.current) {
@@ -42,17 +43,19 @@ function App() {
     },
     scrollToWorkExperience: () => scrollToSection(workExpRef),
     scrollToProjects: () => scrollToSection(projectsRef),
+    scrollToEducation: () => scrollToSection(educationRef),
   };
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <ScrollContext.Provider value={scrollContext}>
-        <div className="app-container" id={theme}>
+        <div className="app-container" id={theme} ref={homeRef}>
           <NavBar />
           <div className="content" ref={homeRef}>
             <Home />
             <WorkExperience ref={workExpRef} />
             <Projects ref={projectsRef} />
+            <Education ref={educationRef} />
           </div>
         </div>
       </ScrollContext.Provider>

@@ -16,7 +16,6 @@ function NavBar() {
     theme === "dark" ? LightModeRoundedIcon : DarkModeRounded;
 
   const handleClick = (itemTitle: string) => {
-    console.log(itemTitle);
     if (itemTitle === "Projects") {
       scrollToProjects();
     } else if (itemTitle === "Experience") {

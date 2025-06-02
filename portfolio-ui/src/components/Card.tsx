@@ -12,7 +12,7 @@ function Card({ heading, subHeading, description, subSection }: CardProps) {
         <h2>{heading}</h2>
         <h3>{subHeading}</h3>
       </div>
-      <div className="card-text">{description}</div>
+      {description ? <div className="card-text">{description}</div> : null}
       {subSection ? <div className="card-sub-section">{subSection}</div> : null}
     </div>
   );
