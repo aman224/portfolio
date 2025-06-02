@@ -13,12 +13,16 @@ function About({ ref }: AboutProps) {
         <div className="about-me">
           <div className="about-content">
             <p className="about-content-text">
-              Hey, I'm Aman Ottakandathil. You can just call me Aman. I am a
-              software engineer passionate about building web application in any
-              language honestly. I love learning something new so I am always
-              open to learning new technologies and languages. I have previously
-              primarily worked on Java and JavaScript along with AWS for cloud
-              services. I am also a bartender if that helps
+              Hi, I'm Aman Ottakandathil – just Aman is perfect. I'm a software
+              engineer, and what truly excites me is the process of bringing web
+              applications to life. I don't really have a favorite language; if
+              there's a problem to solve or something new to learn, I'm all in!
+              My journey has seen me primarily working with Java and JavaScript,
+              building on AWS cloud platforms. Outside of the keyboard, I've
+              spent time as a bartender – a role that surprisingly taught me a
+              lot about quick thinking and handling unexpected challenges,
+              skills I find invaluable in software development! And yes, this
+              was indeed "polished" by good old Google's Gemini.
             </p>
           </div>
           <div className="about-img"></div>
@@ -27,10 +31,10 @@ function About({ ref }: AboutProps) {
 
       <Card heading="About this Website">
         <div>
-          This website was developed with a lot of love by Aman using ReactJS
-          and Material 3 guidelines and colours.
+          This website was developed by Aman using ReactJS and uses Material 3
+          guidelines and color palettes
           <div>
-            Background Image's by,
+            The beautiful Background Image's are by,
             <div>
               <a href="https://unsplash.com/@23exe?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">
                 Alexander X.
@@ -48,7 +52,6 @@ function About({ ref }: AboutProps) {
                 Unsplash
               </a>
             </div>
-            <div>Icons from Material Symbols and React MUI</div>
           </div>
         </div>
       </Card>
