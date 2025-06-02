@@ -227,6 +227,11 @@
 
   background-color: var(--md-sys-color-primary);
   color: var(--md-sys-color-on-primary);
+
+  a {
+    color: unset;
+    fill: none;
+  }
 }
 
 .home-socials-item h3 {

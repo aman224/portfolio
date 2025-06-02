@@ -9,8 +9,12 @@ import { ScrollContext } from "../contexts/ScrollContext";
 function NavBar() {
   const iconSize = "medium";
   const { theme, toggleTheme } = useContext(ThemeContext);
-  const { scrollToWorkExperience, scrollToProjects, scrollToHome } =
-    useContext(ScrollContext);
+  const {
+    scrollToWorkExperience,
+    scrollToProjects,
+    scrollToHome,
+    scrollToEducation,
+  } = useContext(ScrollContext);
 
   const ThemeSwitcherIcon =
     theme === "dark" ? LightModeRoundedIcon : DarkModeRounded;
@@ -22,6 +26,8 @@ function NavBar() {
       scrollToWorkExperience();
     } else if (itemTitle === "Home") {
       scrollToHome();
+    } else if (itemTitle === "Education") {
+      scrollToEducation();
     }
   };
 

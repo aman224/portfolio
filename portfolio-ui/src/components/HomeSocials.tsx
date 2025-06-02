@@ -6,24 +6,36 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 function HomeSocials() {
   const iconSize = "medium";
 
+  const handleClick = () => {
+    window.open("https://github.com", "_blank", "noreferrer");
+  };
+
   return (
     <div className="home-socials">
       <div className="home-socials-title">
         <h2>SOCIAL'S</h2>
       </div>
       <div className="home-socials-content">
-        <div className="home-socials-item">
-          <LinkedInIcon fontSize={iconSize} />
-        </div>
-        <div className="home-socials-item">
-          <GitHubIcon fontSize={iconSize} />
-        </div>
-        <div className="home-socials-item">
-          <EmailRoundedIcon fontSize={iconSize} />
-        </div>
-        <div className="home-socials-item">
-          <InstagramIcon fontSize={iconSize} />
-        </div>
+        <a href="https://www.linkedin.com/in/aman-o/">
+          <div className="home-socials-item">
+            <LinkedInIcon fontSize={iconSize} />
+          </div>
+        </a>
+        <a href="https://github.com/aman224">
+          <div className="home-socials-item">
+            <GitHubIcon fontSize={iconSize} />
+          </div>
+        </a>
+        <a href="mailto:amanclct@gmail.com">
+          <div className="home-socials-item">
+            <EmailRoundedIcon fontSize={iconSize} />
+          </div>
+        </a>
+        <a href="https://www.instagram.com/amanfreal">
+          <div className="home-socials-item">
+            <InstagramIcon fontSize={iconSize} />
+          </div>
+        </a>
       </div>
     </div>
   );
