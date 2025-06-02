@@ -1,6 +1,6 @@
 interface SubSectionProps {
-  heading: string;
-  subHeading: string;
+  heading?: string;
+  subHeading?: string;
 }
 
 function SubSection({ heading, subHeading }: SubSectionProps) {

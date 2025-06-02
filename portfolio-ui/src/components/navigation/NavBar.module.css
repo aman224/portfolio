@@ -14,7 +14,7 @@
 
   background-color: var(--md-sys-color-surface-container-low);
 
-  font-variation-settings: var(--title-font-settings-alt);
+  font-variation-settings: var(--font-settings-text);
 }
 
 .navHeader {
@@ -25,7 +25,7 @@
   h3 {
     color: var(--md-sys-color-on-surface);
     line-height: 0;
-    font-variation-settings: var(--title-font-settings);
+    font-variation-settings: var(--font-settings-title);
   }
 }
 

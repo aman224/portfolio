@@ -4,17 +4,16 @@ import "./styles/light.css";
 
 import useLocalStorage from "use-local-storage";
 
-import Home from "./components/Home";
-
 import { ThemeContext } from "./contexts/ThemeContext";
-import WorkExperience from "./components/WorkExperience";
-import Projects from "./components/Projects";
+import WorkExperience from "@components/sections/WorkExperience";
+import Projects from "@components/sections/Projects";
 import { ScrollContext } from "./contexts/ScrollContext";
 import { useRef } from "react";
-import Education from "./components/Education";
-import About from "./components/About";
+import Education from "@components/sections/Education";
+import About from "@components/sections/About";
 
 import NavBar from "@components/navigation/NavBar";
+import Home from "@components/home/Home";
 
 function App() {
   const [theme, setTheme] = useLocalStorage("theme", "dark");

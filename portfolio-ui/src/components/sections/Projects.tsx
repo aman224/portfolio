@@ -1,8 +1,9 @@
 import type { RefObject } from "react";
-import { projects } from "../constants";
-import Card from "./Card";
-import Section from "./Section";
-import TechStack from "./TechStack";
+import { projects } from "@constants";
+
+import Card from "@components/common/Card";
+import Section from "@components/common/Section";
+import TechStack from "@components/common/TechStack";
 
 interface ProjectsProps {
   ref?: RefObject<HTMLDivElement | null>;
@@ -16,8 +17,9 @@ function Projects({ ref }: ProjectsProps) {
           key={project.title}
           heading={project.title}
           description={project.description}
-          subSection={<TechStack techStack={project.stack} />}
-        ></Card>
+        >
+          <TechStack techStack={project.stack} />
+        </Card>
       ))}
     </Section>
   );

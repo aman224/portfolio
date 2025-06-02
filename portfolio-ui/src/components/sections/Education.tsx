@@ -1,8 +1,9 @@
 import type { RefObject } from "react";
-import Section from "./Section";
-import Card from "./Card";
-import { education } from "../constants";
-import SubSection from "./SubSection";
+import { education } from "@constants";
+
+import Card from "@components/common/Card";
+import Section from "@components/common/Section";
+import SubSection from "@components/common/SubSection";
 
 interface EducationProps {
   ref?: RefObject<HTMLDivElement | null>;
@@ -17,7 +18,7 @@ function Education({ ref }: EducationProps) {
           heading={edu.title}
           subHeading={edu.course}
           description=""
-          subSection={
+          children={
             <SubSection heading={"Grade Achieved"} subHeading={edu.grade} />
           }
         />

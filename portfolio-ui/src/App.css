@@ -12,11 +12,11 @@
 
   --container-padding: 1.5rem;
 
-  --title-font-settings: "wdth" 145, "wght" 800;
-  --title-font-settings-alt: "wdth" 115, "wght" 475;
-  --sub-title-font-settings: "wdth" 125, "wght" 600;
+  --font-settings-title: "wdth" 145, "wght" 800;
+  --font-settings-title-sub: "wdth" 125, "wght" 600;
+  --font-settings-text: "wdth" 115, "wght" 475;
 
-  font-variation-settings: var(--title-font-settings-alt);
+  font-variation-settings: var(--font-settings-text);
 }
 
 #sidenav {
@@ -35,7 +35,7 @@
 
   background-color: var(--md-sys-color-surface-container-low);
 
-  font-variation-settings: var(--title-font-settings-alt);
+  font-variation-settings: var(--font-settings-title-alt);
 }
 
 .nav-item {
@@ -86,7 +86,7 @@
   h3 {
     color: var(--md-sys-color-on-surface);
     line-height: 0;
-    font-variation-settings: var(--title-font-settings);
+    font-variation-settings: var(--font-settings-title);
   }
 }
 
@@ -130,7 +130,7 @@
   font-weight: 475;
   line-height: 1.1;
 
-  font-variation-settings: var(--title-font-settings);
+  font-variation-settings: var(--font-settings-title);
 }
 
 .header-title-pre {
@@ -141,7 +141,7 @@
 .header-subtext {
   font-size: 1.25rem;
   max-width: 768px;
-  font-variation-settings: var(--title-font-settings-alt);
+  font-variation-settings: var(--font-settings-title-alt);
 }
 
 .home-primary-section {
@@ -167,7 +167,7 @@
   width: 80%;
   padding: 0 10%;
 
-  font-variation-settings: var(--sub-title-font-settings);
+  font-variation-settings: var(--font-settings-title-sub);
 }
 
 .quick-links-item {
@@ -242,12 +242,12 @@
   margin-top: 4rem;
 }
 
-.section-heading {
+.section-header {
   font-size: 2.5em;
   font-weight: 500;
   margin: 1.5rem;
 
-  font-variation-settings: var(--sub-title-font-settings);
+  font-variation-settings: var(--font-settings-title-sub);
 }
 
 .card-container-grid {
@@ -275,7 +275,7 @@
 }
 
 .card-header {
-  font-variation-settings: var(--sub-title-font-settings);
+  font-variation-settings: var(--font-settings-title-sub);
 
   h2 {
     font-size: 1.5rem;

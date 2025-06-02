@@ -1,8 +1,9 @@
 import type { RefObject } from "react";
-import { workExp } from "../constants";
-import Card from "./Card";
-import Section from "./Section";
-import SubSection from "./SubSection";
+import { workExp } from "@constants";
+
+import Card from "@components/common/Card";
+import Section from "@components/common/Section";
+import SubSection from "@components/common/SubSection";
 
 interface WorkExperienceProps {
   ref?: RefObject<HTMLDivElement | null>;
@@ -17,15 +18,11 @@ function WorkExperience({ ref }: WorkExperienceProps) {
           heading={exp.company}
           subHeading={exp.role}
           description={exp.description}
-          subSection={
-            exp.award ? (
-              <SubSection
-                heading={exp.award}
-                subHeading={exp.awardDescription}
-              />
-            ) : null
-          }
-        />
+        >
+          {exp.award && (
+            <SubSection heading={exp.award} subHeading={exp.awardDescription} />
+          )}
+        </Card>
       ))}
     </Section>
   );
