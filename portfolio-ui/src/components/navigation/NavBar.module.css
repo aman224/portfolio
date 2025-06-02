@@ -1,0 +1,114 @@
+.sidenav {
+  grid-column: 1 / 2;
+
+  height: 100vh;
+  width: 5.5rem;
+  padding: 0.75rem;
+  position: fixed;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+
+  background-color: var(--md-sys-color-surface-container-low);
+
+  font-variation-settings: var(--title-font-settings-alt);
+}
+
+.navHeader {
+  display: none;
+  color: var(--md-sys-color-primary);
+  padding: 0.5rem;
+
+  h3 {
+    color: var(--md-sys-color-on-surface);
+    line-height: 0;
+    font-variation-settings: var(--title-font-settings);
+  }
+}
+
+.navHeaderTitle {
+  user-select: none;
+  cursor: pointer;
+  color: var(--md-sys-color-on-surface);
+}
+
+.navHeaderTitle:hover {
+  color: var(--md-sys-color-primary);
+}
+
+.navItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 0.75em;
+  cursor: pointer;
+}
+
+.navItemIcon {
+  padding: 0.4rem 0.75rem;
+  margin-bottom: 0.25rem;
+  display: flex;
+  border-radius: var(--border-radius);
+}
+
+.navItemIcon:hover {
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+}
+
+.navItemSelected {
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+  font-variation-settings: "FILL" 1;
+  transition: font-variation-settings 0.3s ease-out;
+}
+
+.navModeSwitcher {
+  padding: 0.75rem;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+  display: flex;
+}
+
+.navModeSwitcher:hover {
+  background-color: var(--md-sys-color-secondary-container);
+  color: var(--md-sys-color-on-secondary-container);
+}
+
+@media screen and (max-width: 768px) {
+  .sidenav {
+    flex-direction: row;
+    height: 4rem;
+    width: 100%;
+    justify-content: space-between;
+    grid-row: 1;
+    grid-column: unset;
+
+    background-color: var(--md-sys-color-surface-container-lowest);
+  }
+
+  .navItem {
+    display: none;
+  }
+
+  .navHeader {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .navModeSwitcher {
+    display: flex;
+    padding: 0.5rem;
+    background-color: inherit;
+    color: var(--md-sys-color-on-surface);
+  }
+}

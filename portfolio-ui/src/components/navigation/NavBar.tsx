@@ -1,13 +1,13 @@
-import LightModeRoundedIcon from "@mui/icons-material/LightModeRounded";
-import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import { useContext } from "react";
-import { ThemeContext } from "../contexts/ThemeContext";
-import { DarkModeRounded } from "@mui/icons-material";
-import { navItems } from "../constants";
-import { ScrollContext } from "../contexts/ScrollContext";
+import { ThemeContext } from "@contexts/ThemeContext";
+import { ScrollContext } from "@contexts/ScrollContext";
+
+import Icon from "@components/common/Icon";
+import { navItems } from "@constants";
+
+import styles from "./NavBar.module.css";
 
 function NavBar() {
-  const iconSize = "medium";
   const { theme, toggleTheme } = useContext(ThemeContext);
   const {
     scrollToWorkExperience,
@@ -15,9 +15,6 @@ function NavBar() {
     scrollToHome,
     scrollToEducation,
   } = useContext(ScrollContext);
-
-  const ThemeSwitcherIcon =
-    theme === "dark" ? LightModeRoundedIcon : DarkModeRounded;
 
   const handleClick = (itemTitle: string) => {
     if (itemTitle === "Projects") {
@@ -32,35 +29,42 @@ function NavBar() {
   };
 
   return (
-    <nav id="sidenav">
-      <div className="nav-menu-header">
-        <MenuRoundedIcon fontSize={iconSize} />
+    <nav className={styles.sidenav}>
+      <div className={styles.navHeader}>
+        <Icon type="menu" />
         <h3
-          className="nav-menu-header-title"
+          className={styles.navHeaderTitle}
           onClick={() => handleClick("Home")}
         >
           AO
         </h3>
       </div>
+
       {navItems.map((item) => (
         <div
-          className="nav-item"
+          className={styles.navItem}
           key={item.title}
           onClick={() => handleClick(item.title)}
         >
           <div
-            className={
-              "nav-item-icon" +
-              (item.title === "Home" ? " nav-item-selected" : "")
-            }
+            className={`${styles.navItemIcon} ${
+              item.title === "Home" && styles.navItemSelected
+            }`}
           >
-            <item.icon fontSize={iconSize} />
+            <Icon type={item.type} />
           </div>
           <p>{item.title}</p>
         </div>
       ))}
-      <div className="nav-item nav-mode-switcher">
-        <ThemeSwitcherIcon fontSize={iconSize} onClick={toggleTheme} />
+      <div
+        className={`${styles.navItem} ${styles.navModeSwitcher}`}
+        onClick={toggleTheme}
+      >
+        {theme === "dark" ? (
+          <Icon type="light_mode" />
+        ) : (
+          <Icon type="dark_mode" />
+        )}
       </div>
     </nav>
   );

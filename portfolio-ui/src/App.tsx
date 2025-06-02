@@ -4,7 +4,6 @@ import "./styles/light.css";
 
 import useLocalStorage from "use-local-storage";
 
-import NavBar from "./components/NavBar";
 import Home from "./components/Home";
 
 import { ThemeContext } from "./contexts/ThemeContext";
@@ -14,6 +13,8 @@ import { ScrollContext } from "./contexts/ScrollContext";
 import { useRef } from "react";
 import Education from "./components/Education";
 import About from "./components/About";
+
+import NavBar from "@components/navigation/NavBar";
 
 function App() {
   const [theme, setTheme] = useLocalStorage("theme", "dark");

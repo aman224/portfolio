@@ -4,29 +4,36 @@ import SchoolRoundedIcon from "@mui/icons-material/SchoolRounded";
 import InfoRoundedIcon from "@mui/icons-material/InfoRounded";
 import WorkRoundedIcon from "@mui/icons-material/WorkRounded";
 
+const ICON_SIZE = "medium";
+
 const navItems = [
   {
     title: "Home",
+    type: "home",
     icon: HomeRoundedIcon,
     path: "/",
   },
   {
     title: "Experience",
+    type: "work",
     icon: WorkRoundedIcon,
     path: "/experience",
   },
   {
     title: "Projects",
+    type: "code",
     icon: CodeRoundedIcon,
     path: "/projects",
   },
   {
     title: "Education",
+    type: "school",
     icon: SchoolRoundedIcon,
     path: "/education",
   },
   {
     title: "About",
+    type: "info",
     icon: InfoRoundedIcon,
     path: "/about",
   },
@@ -136,4 +143,4 @@ const education = [
   },
 ];
 
-export { workExp, navItems, projects, education };
+export { workExp, navItems, projects, education, ICON_SIZE };
