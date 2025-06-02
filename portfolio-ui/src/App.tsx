@@ -13,6 +13,7 @@ import Projects from "./components/Projects";
 import { ScrollContext } from "./contexts/ScrollContext";
 import { useRef } from "react";
 import Education from "./components/Education";
+import About from "./components/About";
 
 function App() {
   const [theme, setTheme] = useLocalStorage("theme", "dark");
@@ -25,6 +26,7 @@ function App() {
   const workExpRef = useRef<HTMLDivElement>(null);
   const projectsRef = useRef<HTMLDivElement>(null);
   const educationRef = useRef<HTMLDivElement>(null);
+  const aboutRef = useRef<HTMLDivElement>(null);
 
   const scrollToSection = (ref: React.RefObject<HTMLDivElement | null>) => {
     if (ref.current) {
@@ -56,6 +58,7 @@ function App() {
             <WorkExperience ref={workExpRef} />
             <Projects ref={projectsRef} />
             <Education ref={educationRef} />
+            <About ref={aboutRef} />
           </div>
         </div>
       </ScrollContext.Provider>

@@ -123,8 +123,6 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
-
-  margin: 4rem 2rem 0 2rem;
 }
 
 .header-title {
@@ -193,22 +191,23 @@
   color: var(--md-sys-color-on-secondary-container);
 }
 
+.home-socials {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 .home-socials-title {
   display: none;
+  margin-right: 0.5rem;
   h2 {
     font-size: 3em;
-    font-weight: 400;
-    font-variation-settings: "wdth" 10;
+    font-weight: 450;
+    font-variation-settings: "wdth" 25;
     line-height: normal;
     color: var(--md-sys-color-primary);
   }
-}
-
-.home-socials-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  justify-content: center;
-  gap: 0.5rem;
 }
 
 .home-socials-item {
@@ -219,11 +218,6 @@
   cursor: pointer;
 
   aspect-ratio: 1 / 1;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
 
   background-color: var(--md-sys-color-primary);
   color: var(--md-sys-color-on-primary);
@@ -243,11 +237,6 @@
   color: var(--md-sys-color-on-secondary-container);
 }
 
-.home-socials-item-text {
-  display: none;
-  font-variation-settings: var(--sub-title-font-settings);
-}
-
 .section-container {
   padding: 0 5rem;
   margin-top: 4rem;
@@ -261,12 +250,18 @@
   font-variation-settings: var(--sub-title-font-settings);
 }
 
-.card-container {
+.card-container-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.5rem;
 
   border-radius: var(--border-radius);
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .card {
@@ -306,6 +301,23 @@
 .stack-icon {
   width: 2.5rem;
   margin: 0.33rem;
+}
+
+.about-me {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    border-radius: var(--border-radius);
+    max-width: 200px;
+  }
+}
+
+.about-content {
+  text-align: justify;
 }
 
 @media screen and (max-width: 768px) {
@@ -394,20 +406,10 @@
   }
 
   .home-socials {
-    display: grid;
-    grid-template-columns: max-content 1fr;
     background-color: var(--md-sys-color-surface-container);
     padding: 1.5rem;
     border-radius: var(--border-radius);
     width: 100%;
-    gap: 1rem;
-  }
-
-  .home-socials-content {
-    display: grid;
-    gap: 0.5rem;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    align-content: center;
   }
 
   .home-socials-item-text {
@@ -432,7 +434,7 @@
     font-size: 2em;
   }
 
-  .card-container {
+  .card-container-grid {
     grid-template-columns: 1fr;
   }
 }

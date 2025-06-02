@@ -3,7 +3,6 @@ import CodeRoundedIcon from "@mui/icons-material/CodeRounded";
 import SchoolRoundedIcon from "@mui/icons-material/SchoolRounded";
 import InfoRoundedIcon from "@mui/icons-material/InfoRounded";
 import WorkRoundedIcon from "@mui/icons-material/WorkRounded";
-import EmailRoundedIcon from "@mui/icons-material/EmailRounded";
 
 const navItems = [
   {
@@ -25,11 +24,6 @@ const navItems = [
     title: "Education",
     icon: SchoolRoundedIcon,
     path: "/education",
-  },
-  {
-    title: "Contact",
-    icon: EmailRoundedIcon,
-    path: "/contact",
   },
   {
     title: "About",

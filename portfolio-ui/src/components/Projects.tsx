@@ -15,7 +15,6 @@ function Projects({ ref }: ProjectsProps) {
         <Card
           key={project.title}
           heading={project.title}
-          subHeading=""
           description={project.description}
           subSection={<TechStack techStack={project.stack} />}
         ></Card>
