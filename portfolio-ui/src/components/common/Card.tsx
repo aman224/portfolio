@@ -4,10 +4,11 @@ interface CardProps {
   heading?: string;
   subHeading?: string;
   description?: string;
+  link?: string;
   children?: React.ReactNode;
 }
 
-function Card({ heading, subHeading, description, children }: CardProps) {
+function Card({ heading, subHeading, description, link, children }: CardProps) {
   return (
     <div className={styles.card}>
       {heading && (
@@ -18,6 +19,11 @@ function Card({ heading, subHeading, description, children }: CardProps) {
       )}
       {description && <div className={styles.cardText}>{description}</div>}
       {children && <div className={styles.cardChildren}>{children}</div>}
+      {link && (
+        <div className={styles.cardLink}>
+          <a href={link}>{link}</a>
+        </div>
+      )}
     </div>
   );
 }

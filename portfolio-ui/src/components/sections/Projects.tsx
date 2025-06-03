@@ -12,6 +12,8 @@ function Projects() {
           key={project.title}
           heading={project.title}
           description={project.description}
+          subHeading={project.subtitle}
+          link={project.link}
         >
           <TechStack techStack={project.stack} />
         </Card>

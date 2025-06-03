@@ -8,12 +8,7 @@ function Education() {
   return (
     <Section title="Education">
       {education.map((edu) => (
-        <Card
-          key={edu.title}
-          heading={edu.title}
-          subHeading={edu.course}
-          description=""
-        >
+        <Card key={edu.title} heading={edu.title} subHeading={edu.course}>
           <SubSection heading={"Grade Achieved"} subHeading={edu.grade} />
         </Card>
       ))}
