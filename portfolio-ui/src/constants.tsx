@@ -1,40 +1,34 @@
-import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
-import CodeRoundedIcon from "@mui/icons-material/CodeRounded";
-import SchoolRoundedIcon from "@mui/icons-material/SchoolRounded";
-import InfoRoundedIcon from "@mui/icons-material/InfoRounded";
-import WorkRoundedIcon from "@mui/icons-material/WorkRounded";
-
 const ICON_SIZE = "medium";
 
 const navItems = [
   {
     title: "Home",
     type: "home",
-    icon: HomeRoundedIcon,
+    target: "homeSection",
     path: "/",
   },
   {
     title: "Experience",
     type: "work",
-    icon: WorkRoundedIcon,
+    target: "workExpSection",
     path: "/experience",
   },
   {
     title: "Projects",
     type: "code",
-    icon: CodeRoundedIcon,
+    target: "projectsSection",
     path: "/projects",
   },
   {
     title: "Education",
     type: "school",
-    icon: SchoolRoundedIcon,
+    target: "educationSection",
     path: "/education",
   },
   {
     title: "About",
     type: "info",
-    icon: InfoRoundedIcon,
+    target: "aboutSection",
     path: "/about",
   },
 ];

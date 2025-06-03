@@ -57,15 +57,19 @@
 }
 
 .navItemIcon:hover {
-  background-color: var(--md-sys-color-primary);
-  color: var(--md-sys-color-on-primary);
+  background-color: var(--md-sys-color-surface-container-high);
 }
 
 .navItemSelected {
   background-color: var(--md-sys-color-primary);
   color: var(--md-sys-color-on-primary);
+  border-radius: var(--border-radius);
   font-variation-settings: "FILL" 1;
-  transition: font-variation-settings 0.3s ease-out;
+  transition: background-color 0.5s cubic-bezier(0.2, 0, 0, 1);
+}
+
+.navItemSelected:hover {
+  background-color: var(--md-sys-color-secondary);
 }
 
 .navModeSwitcher {

@@ -4,16 +4,18 @@ import "./styles/light.css";
 
 import useLocalStorage from "use-local-storage";
 
+import { Element, Events, scrollSpy } from "react-scroll";
+
+import { useEffect } from "react";
+
 import { ThemeContext } from "./contexts/ThemeContext";
-import WorkExperience from "@components/sections/WorkExperience";
-import Projects from "@components/sections/Projects";
-import { ScrollContext } from "./contexts/ScrollContext";
-import { useRef } from "react";
-import Education from "@components/sections/Education";
-import About from "@components/sections/About";
 
 import NavBar from "@components/navigation/NavBar";
 import Home from "@components/home/Home";
+import WorkExperience from "@components/sections/WorkExperience";
+import Projects from "@components/sections/Projects";
+import Education from "@components/sections/Education";
+import About from "@components/sections/About";
 
 function App() {
   const [theme, setTheme] = useLocalStorage("theme", "dark");
@@ -22,46 +24,40 @@ function App() {
     setTheme((current) => (current === "dark" ? "light" : "dark"));
   };
 
-  const homeRef = useRef<HTMLDivElement>(null);
-  const workExpRef = useRef<HTMLDivElement>(null);
-  const projectsRef = useRef<HTMLDivElement>(null);
-  const educationRef = useRef<HTMLDivElement>(null);
-  const aboutRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    Events.scrollEvent.register("begin", () => {});
+    Events.scrollEvent.register("end", () => {});
 
-  const scrollToSection = (ref: React.RefObject<HTMLDivElement | null>) => {
-    if (ref.current) {
-      ref.current.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
-  };
+    scrollSpy.update();
 
-  const scrollContext = {
-    scrollToHome: () => {
-      if (homeRef) {
-        homeRef.current?.scrollTo({ top: 0, behavior: "smooth" });
-      }
-    },
-    scrollToWorkExperience: () => scrollToSection(workExpRef),
-    scrollToProjects: () => scrollToSection(projectsRef),
-    scrollToEducation: () => scrollToSection(educationRef),
-  };
+    return () => {
+      Events.scrollEvent.remove("begin");
+      Events.scrollEvent.remove("end");
+    };
+  }, []);
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      <ScrollContext.Provider value={scrollContext}>
-        <div className="app-container" id={theme}>
-          <NavBar />
-          <div className="content" ref={homeRef}>
+      <div className="app-container" id={theme}>
+        <NavBar />
+        <div id="main">
+          <Element name="homeSection" className="home-section">
             <Home />
-            <WorkExperience ref={workExpRef} />
-            <Projects ref={projectsRef} />
-            <Education ref={educationRef} />
-            <About ref={aboutRef} />
-          </div>
+          </Element>
+          <Element name="workExpSection">
+            <WorkExperience />
+          </Element>
+          <Element name="projectsSection">
+            <Projects />
+          </Element>
+          <Element name="educationSection">
+            <Education />
+          </Element>
+          <Element name="aboutSection">
+            <About />
+          </Element>
         </div>
-      </ScrollContext.Provider>
+      </div>
     </ThemeContext.Provider>
   );
 }

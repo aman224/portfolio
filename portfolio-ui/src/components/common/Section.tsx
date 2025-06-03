@@ -1,22 +1,24 @@
-import type { RefObject } from "react";
-
 interface SectionProps {
   title: string;
   children?: React.ReactNode;
   grid?: boolean;
-  ref?: RefObject<HTMLDivElement | null>;
+  maxvh?: boolean;
 }
 
-function Section({ title, children, grid = true, ref }: SectionProps) {
+function Section({ title, children, grid = true, maxvh }: SectionProps) {
+  const sectionClass = maxvh
+    ? "section-container full-height"
+    : "section-container";
+
   return (
-    <div className="section-container" ref={ref}>
+    <section className={sectionClass}>
       <h1 className="section-header">{title}</h1>
       {grid ? (
         <div className="card-container-grid">{children}</div>
       ) : (
         <div className="card-container">{children}</div>
       )}
-    </div>
+    </section>
   );
 }
 

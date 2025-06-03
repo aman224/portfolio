@@ -1,27 +1,45 @@
 import styles from "./Home.module.css";
 
-import { useContext } from "react";
-
-import { ScrollContext } from "@contexts/ScrollContext";
+import { Link } from "react-scroll";
 
 function QuickLinks() {
-  const { scrollToWorkExperience, scrollToProjects } =
-    useContext(ScrollContext);
-
   return (
     <div className={styles.quickLinks}>
-      <div className={styles.quickLinksItem} onClick={scrollToWorkExperience}>
+      <Link
+        to={"workExpSection"}
+        offset={-12}
+        duration={500}
+        smooth={true}
+        containerId="main"
+        className={styles.quickLinksItem}
+      >
         <p>See my Work Experience</p>
-      </div>
-      <div className={styles.quickLinksItem} onClick={scrollToProjects}>
+      </Link>
+      <Link
+        to={"projectsSection"}
+        offset={-12}
+        duration={500}
+        smooth={true}
+        containerId="main"
+        className={styles.quickLinksItem}
+      >
         <p>View my Projects</p>
-      </div>
+      </Link>
       <div className={styles.quickLinksItem}>
-        <p>Download my Resume</p>
+        <a href={"src/assets/Aman_CV.pdf"} download="Aman_CV.pdf">
+          Download my Resume
+        </a>
       </div>
-      <div className={styles.quickLinksItem}>
+      <Link
+        to={"aboutSection"}
+        offset={-12}
+        duration={500}
+        smooth={true}
+        containerId="main"
+        className={styles.quickLinksItem}
+      >
         <p>Learn more About me</p>
-      </div>
+      </Link>
     </div>
   );
 }

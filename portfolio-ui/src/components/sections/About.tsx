@@ -1,14 +1,9 @@
-import type { RefObject } from "react";
 import Card from "@components/common/Card";
 import Section from "@components/common/Section";
 
-interface AboutProps {
-  ref?: RefObject<HTMLDivElement | null>;
-}
-
-function About({ ref }: AboutProps) {
+function About() {
   return (
-    <Section title="About" grid={false} ref={ref}>
+    <Section title="About" grid={false}>
       <Card>
         <div className="about-me">
           <div className="about-content">

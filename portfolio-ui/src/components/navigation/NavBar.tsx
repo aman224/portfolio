@@ -1,58 +1,39 @@
+import styles from "./NavBar.module.css";
+
 import { useContext } from "react";
+import { Link } from "react-scroll";
+
 import { ThemeContext } from "@contexts/ThemeContext";
-import { ScrollContext } from "@contexts/ScrollContext";
 
 import Icon from "@components/common/Icon";
 import { navItems } from "@constants";
 
-import styles from "./NavBar.module.css";
-
 function NavBar() {
   const { theme, toggleTheme } = useContext(ThemeContext);
-  const {
-    scrollToWorkExperience,
-    scrollToProjects,
-    scrollToHome,
-    scrollToEducation,
-  } = useContext(ScrollContext);
-
-  const handleClick = (itemTitle: string) => {
-    if (itemTitle === "Projects") {
-      scrollToProjects();
-    } else if (itemTitle === "Experience") {
-      scrollToWorkExperience();
-    } else if (itemTitle === "Home") {
-      scrollToHome();
-    } else if (itemTitle === "Education") {
-      scrollToEducation();
-    }
-  };
 
   return (
     <nav className={styles.sidenav}>
       <div className={styles.navHeader}>
         <Icon type="menu" />
-        <h3
-          className={styles.navHeaderTitle}
-          onClick={() => handleClick("Home")}
-        >
-          AO
-        </h3>
+        <Link to="homeSection" offset={-64} smooth={true} containerId="main">
+          <h3 className={styles.navHeaderTitle}>AO</h3>
+        </Link>
       </div>
 
       {navItems.map((item) => (
-        <div
-          className={styles.navItem}
-          key={item.title}
-          onClick={() => handleClick(item.title)}
-        >
-          <div
-            className={`${styles.navItemIcon} ${
-              item.title === "Home" && styles.navItemSelected
-            }`}
+        <div className={styles.navItem} key={item.title}>
+          <Link
+            to={item.target}
+            spy={true}
+            offset={-80}
+            duration={500}
+            smooth={true}
+            activeClass={styles.navItemSelected}
+            className={styles.navItemIcon}
+            containerId="main"
           >
             <Icon type={item.type} />
-          </div>
+          </Link>
           <p>{item.title}</p>
         </div>
       ))}
