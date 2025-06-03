@@ -1,3 +1,5 @@
+import styles from "./Common.module.css";
+
 interface CardProps {
   heading?: string;
   subHeading?: string;
@@ -7,15 +9,15 @@ interface CardProps {
 
 function Card({ heading, subHeading, description, children }: CardProps) {
   return (
-    <div className="card">
+    <div className={styles.card}>
       {heading && (
-        <div className="card-header">
+        <div className={styles.cardHeader}>
           <h2>{heading}</h2>
           {subHeading && <h3>{subHeading}</h3>}
         </div>
       )}
-      {description && <div className="card-text">{description}</div>}
-      {children && <div className="card-sub-section">{children}</div>}
+      {description && <div className={styles.cardText}>{description}</div>}
+      {children && <div className={styles.cardChildren}>{children}</div>}
     </div>
   );
 }

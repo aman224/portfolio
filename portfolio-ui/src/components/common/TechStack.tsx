@@ -1,14 +1,16 @@
 import StackIcon from "tech-stack-icons";
 
+import styles from "./Common.module.css";
+
 interface TechStackProps {
   techStack: string[] | [];
 }
 
 function TechStack({ techStack = [] }: TechStackProps) {
   return (
-    <div className="techstack">
+    <div>
       {techStack.map((item) => (
-        <StackIcon key={item} name={item} className="stack-icon" />
+        <StackIcon key={item} name={item} className={styles.stackIcon} />
       ))}
     </div>
   );

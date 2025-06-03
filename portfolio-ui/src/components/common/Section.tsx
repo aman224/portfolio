@@ -1,22 +1,19 @@
+import styles from "./Common.module.css";
+
 interface SectionProps {
   title: string;
   children?: React.ReactNode;
   grid?: boolean;
-  maxvh?: boolean;
 }
 
-function Section({ title, children, grid = true, maxvh }: SectionProps) {
-  const sectionClass = maxvh
-    ? "section-container full-height"
-    : "section-container";
-
+function Section({ title, children, grid = true }: SectionProps) {
   return (
-    <section className={sectionClass}>
-      <h1 className="section-header">{title}</h1>
+    <section className={styles.sectionContainer}>
+      <h1 className={styles.sectionHeader}>{title}</h1>
       {grid ? (
-        <div className="card-container-grid">{children}</div>
+        <div className={styles.cardContainerGrid}>{children}</div>
       ) : (
-        <div className="card-container">{children}</div>
+        <div className={styles.cardContainer}>{children}</div>
       )}
     </section>
   );
