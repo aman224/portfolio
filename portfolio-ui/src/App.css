@@ -45,6 +45,17 @@
   }
 }
 
+.about-website {
+  a {
+    text-decoration: underline;
+    color: var(--md-sys-color-secondary);
+  }
+
+  a:hover {
+    color: var(--md-sys-color-primary);
+  }
+}
+
 @media screen and (max-width: 768px) {
   .app-container {
     grid-template-rows: 4rem 1fr;
@@ -54,5 +65,9 @@
   #main {
     padding: 0.5rem;
     grid-row: 2;
+  }
+
+  .home-section {
+    height: initial;
   }
 }

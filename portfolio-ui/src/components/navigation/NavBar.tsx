@@ -14,7 +14,7 @@ function NavBar() {
   return (
     <nav className={styles.sidenav}>
       <div className={styles.navHeader}>
-        <Icon type="menu" />
+        {/* <Icon type="menu" /> */}
         <Link to="homeSection" offset={-64} smooth={true} containerId="main">
           <h3 className={styles.navHeaderTitle}>AO</h3>
         </Link>

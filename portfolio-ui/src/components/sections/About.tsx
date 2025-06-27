@@ -25,7 +25,7 @@ function About() {
       </Card>
 
       <Card heading="About this Website" subHeading="[[ Still In Progress ]]">
-        <div>
+        <div className="about-website">
           This website was developed by Aman using ReactJS and uses Material 3
           guidelines and color palettes
           <div>
