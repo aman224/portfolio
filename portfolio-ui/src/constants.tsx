@@ -61,8 +61,7 @@ const projects = [
   {
     title: "Leap Analysis",
     subtitle: "Project at Dexlock Technologies",
-    description:
-      "Designed and deployed a scalable web application that unified data from various sources using semantic web technologies and Gremlin graph traversals, effectively eliminating JOIN operations and reducing data integration time. This application also included lazy loading functions, cutting memory consumption by 50% or more.",
+    description: "Virtualized Semantic Search and Analytics Engine",
     stack: [
       "java",
       "python",
@@ -83,7 +82,7 @@ const projects = [
     title: "Distributed Tracing Framework",
     subtitle: "MSc Project",
     description:
-      "Created a Java Spring Boot framework that leveraged a service mesh to monitor network traffic, break down call flow latencies among microservices, and provide visualization of collected metrics. This initiative involved investigating Kubernetes and the significance of service meshes in large-scale clusters, ultimately reducing debugging time by 50% or more depending on issue complexity.",
+      "Framework to monitor network traffic and call flow latencies among microservices in Kubernetes clusters",
     stack: [
       "java",
       "spring",
@@ -99,21 +98,21 @@ const projects = [
   {
     title: "Project Management System",
     subtitle: "Training Project at Dexlock Technologies",
-    description:
-      "Designed and implemented a robust Project Management System to centralize tracking of project details, employee work logs, bugs, and tasks. The system features a scalable and modern frontend, engineered with React.js, which facilitated rapid development and efficient management of UI states.",
+    description: "Project Management System to centralize project tracking",
     stack: ["js", "reactjs", "nodejs", "mongodb", "figma"],
   },
   {
-    title: "Terminal Text Editor",
-    description:
-      "Engineered a terminal-based text editor, gaining a deep understanding of the underlying mechanisms of text editors. A key innovation was leveraging rope data structures, which significantly improved text manipulation speed for insertion and deletion on large files.",
+    title: "Text Editor",
+    subtitle: "Personal Project",
+    description: "A terminal based text editor",
     stack: ["java"],
     link: "https://github.com/aman224/text-editor",
   },
   {
     title: "Portfolio (This One)",
+    subtitle: "Personal Project",
     description:
-      "A portfolio website developed with React.js, drawing inspiration from Material 3 Expressive UI guidelines and color schemes. This will implement SpringBoot as a backend along with a suitable database like MongoDB or SQL in the future.",
+      "A portfolio website developed with React.js, drawing inspiration from Material 3 Expressive UI guidelines and color schemes",
     stack: ["js", "reactjs", "java", "spring", "github", "materialui", "figma"],
     link: "https://github.com/aman224/portfolio",
   },
