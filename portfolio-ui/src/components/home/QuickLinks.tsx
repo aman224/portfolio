@@ -11,7 +11,7 @@ function QuickLinks() {
         duration={500}
         smooth={true}
         containerId="main"
-        className={styles.quickLinksItem}
+        className={`${styles.quickLinksItem} ${styles.quickLinksItemBlue}`}
       >
         <p>See my Work Experience</p>
       </Link>
@@ -21,11 +21,11 @@ function QuickLinks() {
         duration={500}
         smooth={true}
         containerId="main"
-        className={styles.quickLinksItem}
+        className={`${styles.quickLinksItem} ${styles.quickLinksItemPurple}`}
       >
         <p>View my Projects</p>
       </Link>
-      <div className={styles.quickLinksItem}>
+      <div className={`${styles.quickLinksItem} ${styles.quickLinksItemBlue}`}>
         <a href={"src/assets/Aman_CV.pdf"} download="Aman_CV.pdf">
           Download my Resume
         </a>
@@ -36,7 +36,7 @@ function QuickLinks() {
         duration={500}
         smooth={true}
         containerId="main"
-        className={styles.quickLinksItem}
+        className={`${styles.quickLinksItem} ${styles.quickLinksItemPurple}`}
       >
         <p>Learn more About me</p>
       </Link>
