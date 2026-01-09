@@ -1,4 +1,5 @@
 import styles from "./Home.module.css";
+import Pacman from "./Pacman";
 
 import QuickLinks from "./QuickLinks";
 import Socials from "@components/common/Socials";
@@ -8,14 +9,19 @@ function Home() {
     <div className={styles.homeContainer}>
       <div className={styles.homePrimary}>
         <div className={styles.header}>
-          <h1 className={styles.headerTitle}>
-            <span className={styles.headerTitlePre}>HEY, I'M </span>
-            <span className={styles.headerTitleName}>AMAN</span>
-          </h1>
+          <div className={styles.headerMain}>
+            <h1 className={styles.headerTitle}>
+              <span className={styles.headerTitlePre}>HEY, I'M </span>
+              <span className={styles.headerTitleName}>AMAN</span>
+            </h1>
+            <Pacman />
+          </div>
+
           <div className={styles.headerText}>
             <p>
-              I'm a software Engineer and I love solving technical problems and
-              building/deploying web application on the cloud
+              <span>Hey, I'm Aman</span>, a software engineer with a passion for
+              solving complex technical problems and building robust, scalable
+              web applications on the cloud.
             </p>
           </div>
         </div>
