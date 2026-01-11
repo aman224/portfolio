@@ -1,7 +1,6 @@
 package com.aman224.portfolio.backend.controllers;
 
 import com.aman224.portfolio.backend.models.Education;
-import com.aman224.portfolio.backend.models.Project;
 import com.aman224.portfolio.backend.services.EducationService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

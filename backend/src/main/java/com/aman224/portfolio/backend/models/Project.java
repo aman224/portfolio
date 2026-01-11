@@ -13,9 +13,7 @@ public class Project {
     private String description;
     private List<String> technologyStack;
 
-    public Project() {
-
-    }
+    public Project() {}
 
     public Project(String name, String subtext, String description, List<String> technologyStack) {
         this.name = name;

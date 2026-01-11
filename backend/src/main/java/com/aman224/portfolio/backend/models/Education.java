@@ -10,8 +10,7 @@ public class Education {
     private String degree;
     private String grade;
 
-    public Education() {
-    }
+    public Education() {}
 
     public Education(String university, String degree, String grade) {
         this.university = university;
