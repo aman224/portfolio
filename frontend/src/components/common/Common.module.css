@@ -92,13 +92,13 @@
   font-size: 0.75rem;
   font-weight: 500;
   padding: 0.75rem;
-  border-radius: 50%;
+  border-radius: var(--border-radius-retro);
   cursor: pointer;
 
   aspect-ratio: 1 / 1;
 
-  background-color: var(--md-sys-color-primary);
-  color: var(--md-sys-color-on-primary);
+  background-color: var(--md-sys-color-surface-container);
+  color: var(--md-sys-color-primary);
 
   a {
     color: unset;
@@ -111,8 +111,8 @@
 }
 
 .socialsItem:hover {
-  background-color: var(--md-sys-color-secondary-container);
-  color: var(--md-sys-color-on-secondary-container);
+  box-shadow: inset 0px 0px 0.5em 0px var(--md-sys-color-primary-container),
+    0px 0px 0.5em 0px var(--md-sys-color-primary-container);
 }
 
 .stackIcon {
@@ -134,6 +134,16 @@
     padding: 1.5rem;
     border-radius: var(--border-radius);
     width: 100%;
+  }
+
+  .socialsItem {
+    background-color: var(--md-sys-color-primary);
+    color: var(--md-sys-color-on-primary);
+    border-radius: 50%;
+  }
+
+  .socialsItem:hover {
+    box-shadow: unset;
   }
 
   .socialsTitle {
