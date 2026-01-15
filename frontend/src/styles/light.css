@@ -39,4 +39,5 @@
   --md-sys-color-surface-lowest: rgb(241 244 251);
 
   --background-image: url(../assets/background-light.jpg);
+  --background-image-default: url(../assets/background-light.jpg);
 }
