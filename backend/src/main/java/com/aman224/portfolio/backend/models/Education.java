@@ -7,15 +7,17 @@ import jakarta.persistence.Id;
 public class Education {
     @Id
     private String university;
-    private String degree;
+    private String course;
     private String grade;
+    private String location;
 
     public Education() {}
 
-    public Education(String university, String degree, String grade) {
+    public Education(String university, String course, String grade, String location) {
         this.university = university;
-        this.degree = degree;
+        this.course = course;
         this.grade = grade;
+        this.location = location;
     }
 
     public String getUniversity() {
@@ -26,12 +28,12 @@ public class Education {
         this.university = university;
     }
 
-    public String getDegree() {
-        return degree;
+    public String getCourse() {
+        return course;
     }
 
-    public void setDegree(String degree) {
-        this.degree = degree;
+    public void setCourse(String course) {
+        this.course = course;
     }
 
     public String getGrade() {
@@ -40,5 +42,13 @@ public class Education {
 
     public void setGrade(String grade) {
         this.grade = grade;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 }
