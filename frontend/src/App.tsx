@@ -6,7 +6,7 @@ import useLocalStorage from "use-local-storage";
 
 import { Element, Events, scrollSpy } from "react-scroll";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import { ThemeContext } from "./contexts/ThemeContext";
 
@@ -16,9 +16,13 @@ import WorkExperience from "@components/sections/WorkExperience";
 import Projects from "@components/sections/Projects";
 import Education from "@components/sections/Education";
 import About from "@components/sections/About";
+import { ApiService } from "./ApiService";
+import type { PortfolioData } from "./ApiService";
 
 function App() {
   const [theme, setTheme] = useLocalStorage("theme", "dark");
+  const [portfolioData, setPortfolioData] = useState<PortfolioData>();
+  const [loading, setLoading] = useState(true);
 
   const toggleTheme = () => {
     setTheme((current) => (current === "dark" ? "light" : "dark"));
@@ -29,12 +33,29 @@ function App() {
     Events.scrollEvent.register("end", () => {});
 
     scrollSpy.update();
+    loadPortfolioData();
 
     return () => {
       Events.scrollEvent.remove("begin");
       Events.scrollEvent.remove("end");
     };
   }, []);
+
+  const loadPortfolioData = async () => {
+    try {
+      setLoading(true);
+      const result = await ApiService.getFullPortfolio();
+      setPortfolioData(result);
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  if (loading) {
+    return <div className="loading-screen">Loading Portfolio...</div>;
+  }
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
@@ -45,13 +66,13 @@ function App() {
             <Home />
           </Element>
           <Element name="workExpSection">
-            <WorkExperience />
+            <WorkExperience data={portfolioData?.workExperience || []} />
           </Element>
           <Element name="projectsSection">
-            <Projects />
+            <Projects data={portfolioData?.projects || []} />
           </Element>
           <Element name="educationSection">
-            <Education />
+            <Education data={portfolioData?.education || []} />
           </Element>
           <Element name="aboutSection">
             <About />

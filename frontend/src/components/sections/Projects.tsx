@@ -1,18 +1,20 @@
-import { projects } from "@constants";
-
 import Card from "@components/common/Card";
 import Section from "@components/common/Section";
 import TechStack from "@components/common/TechStack";
 
-function Projects() {
+interface ProjectProps {
+  data: any[];
+}
+
+function Projects({ data }: ProjectProps) {
   return (
     <Section title="Projects">
-      {projects.map((project) => (
+      {data.map((project) => (
         <Card
-          key={project.title}
-          heading={project.title}
+          key={project.name}
+          heading={project.name}
           description={project.description}
-          subHeading={project.subtitle}
+          subHeading={project.subtext}
           link={project.link}
         >
           <TechStack techStack={project.stack} />
