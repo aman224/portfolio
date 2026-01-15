@@ -56,12 +56,12 @@
 }
 
 .headerText {
-  font-size: 1rem;
+  font-size: 2em;
   max-width: 768px;
   font-variation-settings: var(--font-settings-title-menu);
   align-self: center;
-  text-transform: uppercase;
-  font-family: "Press Start 2P", system-ui;
+  font-family: "Jersey 10", system-ui;
+  line-height: normal;
 }
 
 .quickLinks {
@@ -75,9 +75,7 @@
 
   font-variation-settings: var(--font-settings-title-sub);
 
-  text-transform: uppercase;
-  font-family: "Press Start 2P", system-ui;
-  font-size: 0.75rem;
+  font-family: "Jersey 10", system-ui;
 }
 
 .quickLinksItem {
@@ -93,7 +91,7 @@
   overflow: hidden;
   z-index: 1;
 
-  font-size: 0.8rem;
+  font-size: 1.67em;
 
   border: 4px solid;
   border-radius: var(--border-radius-retro);

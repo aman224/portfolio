@@ -22,7 +22,6 @@ import type { PortfolioData } from "./ApiService";
 function App() {
   const [theme, setTheme] = useLocalStorage("theme", "dark");
   const [portfolioData, setPortfolioData] = useState<PortfolioData>();
-  const [loading, setLoading] = useState(true);
 
   const toggleTheme = () => {
     setTheme((current) => (current === "dark" ? "light" : "dark"));
@@ -43,13 +42,10 @@ function App() {
 
   const loadPortfolioData = async () => {
     try {
-      setLoading(true);
       const result = await ApiService.getFullPortfolio();
       setPortfolioData(result);
     } catch (err) {
       console.log(err);
-    } finally {
-      setLoading(false);
     }
   };
 
