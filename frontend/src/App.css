@@ -1,6 +1,6 @@
 .app-container {
   display: grid;
-  grid-template-columns: 5.5rem 1fr;
+  grid-template-columns: 6rem 1fr;
   grid-template-rows: 100vh;
 
   height: 100vh;
@@ -9,7 +9,7 @@
   color: var(--md-sys-color-on-surface);
 
   --border-radius: 1.5rem;
-  --border-radius-retro: 0.25rem;
+  --border-radius-retro: 0.5rem;
 
   --container-padding: 1.5rem;
 

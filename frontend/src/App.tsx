@@ -53,10 +53,6 @@ function App() {
     }
   };
 
-  if (loading) {
-    return <div className="loading-screen">Loading Portfolio...</div>;
-  }
-
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <div className="app-container" id={theme}>

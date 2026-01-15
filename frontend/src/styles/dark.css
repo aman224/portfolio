@@ -48,5 +48,7 @@
   --md-sys-color-surface-container: rgb(28 32 37);
   --md-sys-color-surface-container-high: rgb(38 42 47);
   --md-sys-color-surface-container-highest: rgb(49 53 58);
+  --md-sys-color-surface-lowest: rgb(0 0 0);
+
   --background-image: url(../assets/background-dark.jpg);
 }

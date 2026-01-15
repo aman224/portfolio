@@ -8,14 +8,6 @@
   --md-sys-color-on-secondary: rgb(255 255 255);
   --md-sys-color-secondary-container: rgb(170 80 183);
   --md-sys-color-on-secondary-container: rgb(255 251 255);
-  --md-sys-color-tertiary: rgb(132 66 158);
-  --md-sys-color-on-tertiary: rgb(255 255 255);
-  --md-sys-color-tertiary-container: rgb(204 132 229);
-  --md-sys-color-on-tertiary-container: rgb(88 20 114);
-  --md-sys-color-error: rgb(186 26 26);
-  --md-sys-color-on-error: rgb(255 255 255);
-  --md-sys-color-error-container: rgb(255 218 214);
-  --md-sys-color-on-error-container: rgb(147 0 10);
   --md-sys-color-background: rgb(247 249 255);
   --md-sys-color-on-background: rgb(24 28 33);
   --md-sys-color-surface: rgb(247 249 255);
@@ -37,10 +29,6 @@
   --md-sys-color-on-secondary-fixed: rgb(53 0 63);
   --md-sys-color-secondary-fixed-dim: rgb(249 172 255);
   --md-sys-color-on-secondary-fixed-variant: rgb(117 27 132);
-  --md-sys-color-tertiary-fixed: rgb(249 216 255);
-  --md-sys-color-on-tertiary-fixed: rgb(50 0 70);
-  --md-sys-color-tertiary-fixed-dim: rgb(237 177 255);
-  --md-sys-color-on-tertiary-fixed-variant: rgb(106 40 132);
   --md-sys-color-surface-dim: rgb(215 218 225);
   --md-sys-color-surface-bright: rgb(247 249 255);
   --md-sys-color-surface-container-lowest: rgb(255 255 255);
@@ -48,5 +36,7 @@
   --md-sys-color-surface-container: rgb(235 238 245);
   --md-sys-color-surface-container-high: rgb(229 232 239);
   --md-sys-color-surface-container-highest: rgb(223 226 233);
+  --md-sys-color-surface-lowest: rgb(241 244 251);
+
   --background-image: url(../assets/background-light.jpg);
 }
