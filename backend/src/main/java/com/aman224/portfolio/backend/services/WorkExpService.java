@@ -17,4 +17,8 @@ public class WorkExpService {
     public List<WorkExp> getAllWorkExp() {
         return this.workExpRepository.findAll();
     }
+
+    public void insert(WorkExp workExp) {
+        this.workExpRepository.save(workExp);
+    }
 }

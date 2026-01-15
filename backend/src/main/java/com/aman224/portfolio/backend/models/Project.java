@@ -1,5 +1,7 @@
 package com.aman224.portfolio.backend.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
@@ -11,15 +13,20 @@ public class Project {
     private String name;
     private String subtext;
     private String description;
+
+    @Column(name = "stack")
+    @JsonProperty("stack")
     private List<String> technologyStack;
+    private String link;
 
     public Project() {}
 
-    public Project(String name, String subtext, String description, List<String> technologyStack) {
+    public Project(String name, String subtext, String description, List<String> technologyStack, String link) {
         this.name = name;
         this.subtext = subtext;
         this.description = description;
         this.technologyStack = technologyStack;
+        this.link = link;
     }
 
     public String getName() {
@@ -52,5 +59,13 @@ public class Project {
 
     public void setTechnologyStack(List<String> technologyStack) {
         this.technologyStack = technologyStack;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setList(String link) {
+        this.link = link;
     }
 }
