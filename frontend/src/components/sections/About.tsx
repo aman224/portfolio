@@ -24,12 +24,12 @@ function About() {
         </div>
       </Card>
 
-      <Card heading="About this Website" subHeading="[[ Still In Progress ]]">
+      <Card heading="About this Website" subHeading="[[ Still In Progress... Will be updated soon :( I just have too much going on atm ]]">
         <div className="about-website">
           This website was developed by Aman using ReactJS and uses Material 3
           guidelines and color palettes
           <div>
-            The beautiful Background Image's are by,{" "}
+            The beautiful Background Image's for mobile view are by,{" "}
             <a href="https://unsplash.com/@23exe?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">
               Alexander X.
             </a>{" "}
@@ -45,6 +45,8 @@ function About() {
             <a href="https://unsplash.com/photos/a-blurry-image-of-a-pink-and-blue-background-yJwL0bTYVs4?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">
               Unsplash
             </a>
+            <br></br>
+            The backgrounds for the desktop version are all generated with good old Google's Gemini
           </div>
         </div>
       </Card>
