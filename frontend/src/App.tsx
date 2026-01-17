@@ -19,6 +19,8 @@ import About from "@components/sections/About";
 import { ApiService } from "./ApiService";
 import type { PortfolioData } from "./ApiService";
 
+import { workExp, projects, education } from "@constants";
+
 function App() {
   const [theme, setTheme] = useLocalStorage("theme", "dark");
   const [portfolioData, setPortfolioData] = useState<PortfolioData>();
@@ -28,11 +30,11 @@ function App() {
   };
 
   useEffect(() => {
-    Events.scrollEvent.register("begin", () => {});
-    Events.scrollEvent.register("end", () => {});
+    Events.scrollEvent.register("begin", () => { });
+    Events.scrollEvent.register("end", () => { });
 
     scrollSpy.update();
-    loadPortfolioData();
+    loadPortfolioData(false);
 
     return () => {
       Events.scrollEvent.remove("begin");
@@ -40,9 +42,19 @@ function App() {
     };
   }, []);
 
-  const loadPortfolioData = async () => {
+  const loadPortfolioData = async (shouldFetch: boolean) => {
     try {
-      const result = await ApiService.getFullPortfolio();
+      let result: PortfolioData;
+      if (shouldFetch) {
+        result = await ApiService.getFullPortfolio();
+      } else {
+        result = {
+          workExperience: workExp,
+          projects: projects,
+          education: education,
+        };
+        console.log(result);
+      }
       setPortfolioData(result);
     } catch (err) {
       console.log(err);

@@ -25,11 +25,12 @@ function QuickLinks() {
       >
         <p>View my Projects</p>
       </Link>
-      <div className={`${styles.quickLinksItem} ${styles.quickLinksItemBlue}`}>
-        <a href={"src/assets/Aman_CV.pdf"} download="Aman_CV.pdf">
+      <a href={"src/assets/Aman_CV.pdf"} download="Aman_CV.pdf">
+        <div className={`${styles.quickLinksItem} ${styles.quickLinksItemBlue}`}>
           Download my Resume
-        </a>
-      </div>
+        </div>
+      </a>
+
       <Link
         to={"aboutSection"}
         offset={-12}
