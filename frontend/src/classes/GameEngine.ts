@@ -25,13 +25,16 @@ export default class GameEngine {
   }
 
   async start() {
-    const mazeImage = await this.loadImage(mazeImageUrl);
+    const [mazeImage, playerSprites] = await Promise.all([
+      this.loadImage(mazeImageUrl),
+      this.loadPlayerSprites(),
+    ]);
+
     this.background = new Sprite({
       image: mazeImage,
       position: { x: MAZE_OFFSET_X, y: MAZE_OFFSET_Y },
     });
 
-    const playerSprites = await this.loadPlayerSprites();
     this.player = new Player({
       image: playerSprites.right,
       position: { x: TILE_SIZE + MAZE_OFFSET_X, y: TILE_SIZE + MAZE_OFFSET_Y },
@@ -87,10 +90,17 @@ export default class GameEngine {
   }
 
   private async loadPlayerSprites() {
-    const playerImageUp = await this.loadImage(pacmanImageUpUrl);
-    const playerImageDown = await this.loadImage(pacmanImageDownUrl);
-    const playerImageLeft = await this.loadImage(pacmanImageLeftUrl);
-    const playerImageRight = await this.loadImage(pacmanImageRightUrl);
+    const [
+      playerImageUp,
+      playerImageDown,
+      playerImageLeft,
+      playerImageRight
+    ] = await Promise.all([
+      this.loadImage(pacmanImageUpUrl),
+      this.loadImage(pacmanImageDownUrl),
+      this.loadImage(pacmanImageLeftUrl),
+      this.loadImage(pacmanImageRightUrl)
+    ]);
 
     const sprites = {
       up: playerImageUp,
