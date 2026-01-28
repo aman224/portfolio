@@ -159,6 +159,7 @@
   border: 6px double var(--md-sys-color-primary-container);
   box-shadow: inset 0px 0px 0.5em 0px var(--md-sys-color-primary-container),
     0px 0px 0.5em 0px var(--md-sys-color-primary-container);
+  background-color: black;
 }
 
 iframe {

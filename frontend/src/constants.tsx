@@ -134,3 +134,13 @@ const education = [
 ];
 
 export { workExp, navItems, projects, education, ICON_SIZE };
+
+const MAP_WIDTH = 126;
+const TILE_SIZE = 6;
+
+const MAZE_OFFSET_X = 0;
+const MAZE_OFFSET_Y = 0;
+
+const PADDING = 10;
+
+export { MAP_WIDTH, TILE_SIZE, MAZE_OFFSET_X, MAZE_OFFSET_Y, PADDING };

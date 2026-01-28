@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="8" height="4" tilewidth="4" tileheight="4" infinite="0" nextlayerid="2" nextobjectid="1">
+ <tileset firstgid="1" source="../../../pacman/assets/Arcade - Pac-Man - Miscellaneous - General Sprites.tsx"/>
+ <layer id="1" name="Tile Layer 1" width="8" height="4">
+  <data encoding="csv">
+1475,1476,1477,1478,1479,1480,1481,1482,
+1645,1646,1647,1648,1649,1650,1651,1652,
+1815,1816,1817,1818,1819,1820,1821,1822,
+1985,1986,1987,1988,1989,1990,1991,1992
+</data>
+ </layer>
+</map>

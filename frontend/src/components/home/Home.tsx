@@ -1,5 +1,5 @@
+import Pacman from "@components/Pacman";
 import styles from "./Home.module.css";
-import Pacman from "./Pacman";
 
 import QuickLinks from "./QuickLinks";
 import Socials from "@components/common/Socials";
