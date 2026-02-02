@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import GameEngine from '../classes/GameEngine';
+import livesImage from '../assets/Lives.png';
+import fruitImage from '../assets/Fruit.png';
 
 import styles from "./home/Home.module.css";
 
@@ -7,6 +9,8 @@ const Pacman: React.FC = () => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const gameEngineRef = useRef<GameEngine | null>(null);
     const [isLoading, setIsLoading] = useState(true);
+
+    const [score, setScore] = useState(0);
 
     useEffect(() => {
         if (canvasRef.current) {
@@ -17,13 +21,13 @@ const Pacman: React.FC = () => {
                 const gameEngine = new GameEngine(canvas, ctx);
                 gameEngineRef.current = gameEngine;
 
-                // Start the game
+                gameEngine.setScoreCallback((newScore) => {
+                    setScore(newScore);
+                });
                 gameEngine.start().then(() => {
                     setIsLoading(false);
                 }).catch(console.error);
 
-                // Add event listener manually if GameEngine doesn't add it in constructor (it adds in main.ts currently)
-                // We'll move that logic here.
                 window.addEventListener("keydown", gameEngine.updatePlayerDirection);
             }
         }
@@ -39,13 +43,35 @@ const Pacman: React.FC = () => {
         <div className={styles.pacmanContainer}>
             {isLoading && (
                 <div className={styles.loadingOverlay}>
-                    <p>LOADING...</p>
+                    <p>LOADING</p>
                 </div>
             )}
-            <canvas
-                ref={canvasRef}
-                style={{ visibility: isLoading ? 'hidden' : 'visible' }}
-            />
+
+            <div style={{ visibility: isLoading ? 'hidden' : 'visible' }} className={styles.gameContainer}>
+                <div className={styles.gameContainerSideContent}>
+                    <div className={styles.oneUpContainer}>
+                        1UP
+                    </div>
+                    <div >
+                        <img src={livesImage} />
+                    </div>
+                </div>
+                <div>
+                    <canvas
+                        ref={canvasRef}
+                    />
+                </div>
+
+                <div className={styles.gameContainerSideContent} style={{ alignItems: 'start' }}>
+                    <div className={styles.scoreContainer}>
+                        {score}
+                    </div>
+
+                    <div className={styles.scoreContainer}>
+                        <img src={fruitImage} />
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };

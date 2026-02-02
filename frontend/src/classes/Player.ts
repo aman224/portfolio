@@ -94,21 +94,21 @@ export default class Player extends Sprite {
       case "U":
         this.image = this.sprites.up;
         this.velocity.x = 0;
-        this.velocity.y = -TILE_SIZE / 4;
+        this.velocity.y = -TILE_SIZE / 3;
         break;
       case "L":
         this.image = this.sprites.left;
-        this.velocity.x = -TILE_SIZE / 4;
+        this.velocity.x = -TILE_SIZE / 3;
         this.velocity.y = 0;
         break;
       case "D":
         this.image = this.sprites.down;
         this.velocity.x = 0;
-        this.velocity.y = TILE_SIZE / 4;
+        this.velocity.y = TILE_SIZE / 3
         break;
       case "R":
         this.image = this.sprites.right;
-        this.velocity.x = TILE_SIZE / 4;
+        this.velocity.x = TILE_SIZE / 3;
         this.velocity.y = 0;
         break;
     }

@@ -1,13 +1,13 @@
 import type { Coordinates } from "../types";
 
 export interface SpriteConstructor {
-  image: HTMLImageElement;
+  image?: HTMLImageElement;
   position: Coordinates;
   frames?: { max: number };
 }
 
 export default class Sprite {
-  protected image: HTMLImageElement;
+  protected image?: HTMLImageElement;
   public position: Coordinates;
   private frames: { max: number; val: number; elapsed: number };
   public moving: boolean = false;
@@ -19,12 +19,16 @@ export default class Sprite {
     this.position = position;
     this.frames = { ...frames, val: 0, elapsed: 0 };
 
-    this.width = this.image.width / this.frames.max;
-    this.height = this.image.height;
+    if (this.image) {
+      this.width = this.image.width / this.frames.max;
+      this.height = this.image.height;
+    }
     this.moving = false;
   }
 
   render(ctx: CanvasRenderingContext2D) {
+    if (!this.image) return;
+
     ctx.drawImage(
       this.image,
       this.frames.val * this.width,
@@ -53,11 +57,11 @@ export default class Sprite {
   }
 
   getImageWidth() {
-    return this.image.width;
+    return this.image?.width || 0;
   }
 
   getImageHeight() {
-    return this.image.height;
+    return this.image?.height || 0;
   }
 
   getFrameWidth() {

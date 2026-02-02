@@ -79,7 +79,7 @@ const projects = [
     ],
   },
   {
-    name: "Distributed Tracing Framework",
+    name: "Service Mesh Tracing Framework",
     subtext: "MSc Project",
     description:
       "Framework to monitor network traffic and call flow latencies among microservices in Kubernetes clusters",
