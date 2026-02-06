@@ -38,6 +38,9 @@
   --md-sys-color-surface-container-highest: rgb(223 226 233);
   --md-sys-color-surface-lowest: rgb(241 244 251);
 
-  --background-image: url(../assets/background-light-arcade.webp);
-  --background-image-default: url(../assets/background-light.webp);
+  --retro-grid-color: rgba(0, 98, 157, 0.4);
+  --retro-grid-glow: rgba(153, 203, 255, 0.8);
+  --retro-sky-top: rgb(247, 249, 255);
+  --retro-sky-bottom: rgb(207, 229, 255);
+  --retro-star-color: rgba(0, 57, 95, 0.5);
 }

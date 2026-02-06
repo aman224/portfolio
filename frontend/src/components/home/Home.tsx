@@ -7,6 +7,7 @@ import Socials from "@components/common/Socials";
 function Home() {
   return (
     <div className={styles.homeContainer}>
+      <div className={styles.retroBackground}></div>
       <div className={styles.homePrimary}>
         <div className={styles.header}>
           <div className={styles.headerMain}>
