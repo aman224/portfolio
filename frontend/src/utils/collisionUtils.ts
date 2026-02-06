@@ -18,16 +18,16 @@ export function rectangularCollisionDetection({
   );
 }
 
-export function generateBoundaries() {
+export function generateBoundaries(collisionData: number[] = collisions) {
   const collisionsMap = [];
-  for (let i = 0; i < collisions.length; i += MAP_WIDTH) {
-    collisionsMap.push(collisions.slice(i, i + MAP_WIDTH));
+  for (let i = 0; i < collisionData.length; i += MAP_WIDTH) {
+    collisionsMap.push(collisionData.slice(i, i + MAP_WIDTH));
   }
 
   const boundaries: Boundary[] = [];
   collisionsMap.forEach((row, i) => {
     row.forEach((boundaryData, j) => {
-      if (boundaryData === 10547) {
+      if (boundaryData !== 0) {
         boundaries.push(
           new Boundary({
             x: j * Boundary.width + MAZE_OFFSET_X,

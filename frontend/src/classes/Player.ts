@@ -1,4 +1,4 @@
-import { TILE_SIZE } from "../constants";
+import { TILE_SIZE, MAP_WIDTH } from "../constants";
 import type { Coordinates } from "../types";
 import { rectangularCollisionDetection } from "../utils/collisionUtils";
 import type Boundary from "./Boundary";
@@ -9,10 +9,10 @@ interface PlayerConstructor extends SpriteConstructor {
   boundaries?: Boundary[];
   velocity: Coordinates;
   sprites: {
-    up: HTMLImageElement;
-    down: HTMLImageElement;
-    right: HTMLImageElement;
-    left: HTMLImageElement;
+    up: HTMLImageElement | HTMLCanvasElement | ImageBitmap;
+    down: HTMLImageElement | HTMLCanvasElement | ImageBitmap;
+    right: HTMLImageElement | HTMLCanvasElement | ImageBitmap;
+    left: HTMLImageElement | HTMLCanvasElement | ImageBitmap;
   };
 }
 
@@ -22,10 +22,10 @@ export default class Player extends Sprite {
   private boundaries: Boundary[];
   private nextDirection: string | null;
   private sprites: {
-    up: HTMLImageElement;
-    down: HTMLImageElement;
-    right: HTMLImageElement;
-    left: HTMLImageElement;
+    up: HTMLImageElement | HTMLCanvasElement | ImageBitmap;
+    down: HTMLImageElement | HTMLCanvasElement | ImageBitmap;
+    right: HTMLImageElement | HTMLCanvasElement | ImageBitmap;
+    left: HTMLImageElement | HTMLCanvasElement | ImageBitmap;
   };
 
   constructor({
@@ -54,6 +54,16 @@ export default class Player extends Sprite {
     }
     this.position.x += this.velocity.x;
     this.position.y += this.velocity.y;
+
+    // Screen Wrapping
+    // If x < -TILE_SIZE, wrap to right
+    if (this.position.x < -TILE_SIZE) {
+      this.position.x = MAP_WIDTH * TILE_SIZE;
+    }
+    // If x > MAP_WIDTH * TILE_SIZE, wrap to left
+    else if (this.position.x > MAP_WIDTH * TILE_SIZE) {
+      this.position.x = -TILE_SIZE;
+    }
   }
 
   tryChangeDirection() {

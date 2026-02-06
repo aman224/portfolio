@@ -1,6 +1,7 @@
 import type Boundary from "./Boundary";
 import Pellet from "./Pellet";
 import Player from "./Player";
+import Ghost from "./Ghost";
 import Sprite from "./Sprite";
 
 import { MAZE_OFFSET_X, MAZE_OFFSET_Y, TILE_SIZE } from "../constants";
@@ -8,19 +9,22 @@ import { generateBoundaries } from "../utils/collisionUtils";
 import { generatePellets } from "../utils/pelletUtils";
 
 import mazeImageUrl from "/src/assets/PacmanTMP50_Cyan.png";
-import pacmanImageRightUrl from "/src/assets/PacmanRight.png";
-import pacmanImageLeftUrl from "/src/assets/PacmanLeft.png";
-import pacmanImageUpUrl from "/src/assets/PacmanUp.png";
-import pacmanImageDownUrl from "/src/assets/PacmanDown.png";
+import pacmanImageUrl from "/src/assets/Pacman.png";
 
+import ghostImageUrl from "/src/assets/Ghost.png";
+
+
+import { ghostCollisions } from "../data/ghost_collisions";
 
 export default class GameEngine {
   private canvas: HTMLCanvasElement;
   private ctx: CanvasRenderingContext2D;
   private boundaries: Boundary[];
+  private ghostBoundaries: Boundary[];
   private pellets: Pellet[];
   private background!: Sprite;
   private player!: Player;
+  private ghosts: Ghost[] = [];
   private animationId: number;
   private score: number = 0;
   private onScoreChange: ((score: number) => void) | null = null;
@@ -30,6 +34,7 @@ export default class GameEngine {
     this.ctx = ctx;
     this.ctx = ctx;
     this.boundaries = generateBoundaries();
+    this.ghostBoundaries = generateBoundaries(ghostCollisions);
     this.pellets = [];
     this.animationId = 0;
   }
@@ -39,9 +44,10 @@ export default class GameEngine {
   }
 
   async start() {
-    const [mazeImage, playerSprites] = await Promise.all([
+    const [mazeImage, playerSprites, ghostSpritesList] = await Promise.all([
       this.loadImage(mazeImageUrl),
       this.loadPlayerSprites(),
+      this.loadGhostSprites(),
     ]);
 
     this.pellets = generatePellets();
@@ -60,6 +66,38 @@ export default class GameEngine {
       sprites: playerSprites,
     });
 
+    this.ghosts = ghostSpritesList.map((ghostSprites, index) => {
+      const row = Math.floor(index / 2);
+      const col = index % 2;
+
+      const spawnX = (57 + col * 6) * TILE_SIZE + MAZE_OFFSET_X;
+      const spawnY = (12 + row * 2) * TILE_SIZE + MAZE_OFFSET_Y;
+
+      const ghost = new Ghost({
+        image: ghostSprites.right,
+        frames: { max: 2 },
+        position: {
+          x: spawnX,
+          y: spawnY
+        },
+        velocity: { x: 0, y: 0 },
+        boundaries: this.ghostBoundaries,
+        sprites: ghostSprites,
+        speed: 1.5,
+        startDelay: 3000
+      });
+
+      const safeExitX = 60 * TILE_SIZE + MAZE_OFFSET_X;
+      const exitY = 11 * TILE_SIZE + MAZE_OFFSET_Y;
+
+      ghost.setWaypoints([
+        { x: safeExitX, y: spawnY },
+        { x: safeExitX, y: exitY }
+      ]);
+
+      return ghost;
+    });
+
     this.configCanvas(
       mazeImage.width + MAZE_OFFSET_X,
       mazeImage.height + MAZE_OFFSET_Y
@@ -72,13 +110,6 @@ export default class GameEngine {
     this.animationId = window.requestAnimationFrame(this.animate);
     this.background.render(this.ctx);
 
-
-
-    // this.boundaries.forEach((boundary) => {
-    //   boundary.render(this.ctx);
-    // });
-
-    // Render pellets and check collision (reverse loop to remove items safely)
     for (let i = this.pellets.length - 1; i >= 0; i--) {
       const pellet = this.pellets[i];
       pellet.render(this.ctx);
@@ -100,6 +131,11 @@ export default class GameEngine {
 
     this.player.update();
     this.player.render(this.ctx);
+
+    this.ghosts.forEach(ghost => {
+      ghost.update();
+      ghost.render(this.ctx);
+    });
   };
 
   updatePlayerDirection = (e: KeyboardEvent): void => {
@@ -133,26 +169,64 @@ export default class GameEngine {
   }
 
   private async loadPlayerSprites() {
-    const [
-      playerImageUp,
-      playerImageDown,
-      playerImageLeft,
-      playerImageRight
-    ] = await Promise.all([
-      this.loadImage(pacmanImageUpUrl),
-      this.loadImage(pacmanImageDownUrl),
-      this.loadImage(pacmanImageLeftUrl),
-      this.loadImage(pacmanImageRightUrl)
+    const image = await this.loadImage(pacmanImageUrl);
+
+    const cols = 8;
+    const spriteWidth = image.width / cols;
+    const spriteHeight = image.height; // Single row
+
+    // Right: cols 0,1
+    // Left: cols 2,3
+    // Up: cols 4,5
+    // Down: cols 6,7
+    const [right, left, up, down] = await Promise.all([
+      createImageBitmap(image, 0 * spriteWidth, 0, 2 * spriteWidth, spriteHeight),
+      createImageBitmap(image, 2 * spriteWidth, 0, 2 * spriteWidth, spriteHeight),
+      createImageBitmap(image, 4 * spriteWidth, 0, 2 * spriteWidth, spriteHeight),
+      createImageBitmap(image, 6 * spriteWidth, 0, 2 * spriteWidth, spriteHeight)
     ]);
 
     const sprites = {
-      up: playerImageUp,
-      down: playerImageDown,
-      left: playerImageLeft,
-      right: playerImageRight,
+      up,
+      down,
+      left,
+      right,
     };
 
     return sprites;
+  }
+
+  private async loadGhostSprites() {
+    const image = await this.loadImage(ghostImageUrl);
+
+    // Updated to 4 rows for 4 ghosts
+    const rows = 4;
+    const cols = 8;
+    const spriteWidth = image.width / cols;
+    const spriteHeight = image.height / rows;
+
+    const ghostSets = [];
+
+    for (let i = 0; i < rows; i++) {
+      // Row i
+      // Right: cols 0,1
+      // Left: cols 2,3
+      // Up: cols 4,5
+      // Down: cols 6,7
+
+      // Use createImageBitmap to slice. It should be available in browser env.
+      // Input: (image, sx, sy, sw, sh)
+      const [right, left, up, down] = await Promise.all([
+        createImageBitmap(image, 0 * spriteWidth, i * spriteHeight, 2 * spriteWidth, spriteHeight),
+        createImageBitmap(image, 2 * spriteWidth, i * spriteHeight, 2 * spriteWidth, spriteHeight),
+        createImageBitmap(image, 4 * spriteWidth, i * spriteHeight, 2 * spriteWidth, spriteHeight),
+        createImageBitmap(image, 6 * spriteWidth, i * spriteHeight, 2 * spriteWidth, spriteHeight)
+      ]);
+
+      ghostSets.push({ right, left, up, down });
+    }
+
+    return ghostSets;
   }
 
   stop() {

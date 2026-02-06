@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="12" height="4" tilewidth="4" tileheight="4" infinite="0" nextlayerid="2" nextobjectid="1">
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="4" height="4" tilewidth="4" tileheight="4" infinite="0" nextlayerid="2" nextobjectid="1">
  <tileset firstgid="1" source="../../../../pacman/assets/Arcade - Pac-Man - Miscellaneous - General Sprites.tsx"/>
  <tileset firstgid="10541" name="demo" tilewidth="8" tileheight="8" tilecount="2635" columns="85">
   <image source="../../../../pacman/assets/Arcade - Pac-Man - Miscellaneous - General Sprites.png" width="680" height="248"/>
  </tileset>
- <layer id="1" name="Tile Layer 1" width="12" height="4">
+ <layer id="1" name="Tile Layer 1" width="4" height="4">
   <data encoding="csv">
-2163,2164,2165,2166,2167,2168,2169,2170,2175,2176,2177,2178,
-2333,2334,2335,2336,2337,2338,2339,2340,2345,2346,2347,2348,
-2503,2504,2505,2506,2507,2508,2509,2510,2515,2516,2517,2518,
-2673,2674,2675,2676,2677,2678,2679,2680,2685,2686,2687,2688
+2163,2164,2165,2166,
+2333,2334,2335,2336,
+2503,2504,2505,2506,
+2673,2674,2675,2676
 </data>
  </layer>
 </map>

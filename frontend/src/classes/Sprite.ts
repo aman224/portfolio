@@ -1,13 +1,13 @@
 import type { Coordinates } from "../types";
 
 export interface SpriteConstructor {
-  image?: HTMLImageElement;
+  image?: HTMLImageElement | HTMLCanvasElement | ImageBitmap;
   position: Coordinates;
   frames?: { max: number };
 }
 
 export default class Sprite {
-  protected image?: HTMLImageElement;
+  protected image?: HTMLImageElement | HTMLCanvasElement | ImageBitmap;
   public position: Coordinates;
   private frames: { max: number; val: number; elapsed: number };
   public moving: boolean = false;
