@@ -51,9 +51,5 @@
   --crt-inner-bg: #0d0e14;
   --crt-bloom: contrast(1.02) brightness(1.05) saturate(1.02);
 
-
-
-
-
   --crt-glow-bleed: rgba(0, 98, 157, 0.05);
 }

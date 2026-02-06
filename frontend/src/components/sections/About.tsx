@@ -45,8 +45,6 @@ function About() {
             <a href="https://unsplash.com/photos/a-blurry-image-of-a-pink-and-blue-background-yJwL0bTYVs4?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">
               Unsplash
             </a>
-            <br></br>
-            The backgrounds for the desktop version are all generated with good old Google's Gemini
           </div>
         </div>
       </Card>
