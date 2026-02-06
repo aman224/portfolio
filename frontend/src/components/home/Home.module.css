@@ -1,10 +1,9 @@
 .homeContainer {
-  font-family: "Jersey 10", system-ui;
+  font-family: "Google Sans Flex", "Roboto Flex", system-ui;
 
   min-height: 100%;
 
   display: flex;
-  justify-content: space-between;
   align-items: center;
   flex-direction: column;
   text-align: center;
@@ -48,14 +47,9 @@
 .retroBackground::after {
   content: "";
   position: absolute;
-  top: 55%;
-<<<<<<< Updated upstream
-  left: -50%;
-  width: 200%;
-=======
+  top: 30%;
   left: 0;
   width: 100%;
->>>>>>> Stashed changes
   height: 100%;
 
   background-image:
@@ -104,8 +98,6 @@
   gap: 2rem;
 }
 
-.headerMain {}
-
 .headerTitle {
   font-size: 5em;
   font-weight: 475;
@@ -121,18 +113,18 @@
 }
 
 .headerSubTitleName {
-  text-transform: uppercase;
+  text-transform: capitalize;
   color: var(--md-sys-color-secondary-container);
 }
 
 .headerText {
-  font-size: 2em;
+  font-size: 1.5em;
   max-width: 768px;
-  font-variation-settings: var(--font-settings-title-menu);
   align-self: center;
-  font-family: "Jersey 10", system-ui;
   line-height: normal;
   text-transform: lowercase;
+
+  font-variation-settings: var(--font-settings-title-sub);
 }
 
 .quickLinks {
@@ -145,8 +137,6 @@
   padding: 0 10%;
 
   font-variation-settings: var(--font-settings-title-sub);
-
-  font-family: "Jersey 10", system-ui;
 }
 
 .quickLinksItem {
@@ -161,48 +151,32 @@
   position: relative;
   overflow: hidden;
 
-  font-size: 1.67em;
-
+  font-size: 1.25em;
   border-radius: var(--border-radius-retro);
+  border: 3px solid;
 
   z-index: 20;
   opacity: 1;
 }
 
-.quickLinksItem::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(rgba(0, 0, 0, 0.08) 50%, transparent 50%);
-  background-size: 100% 3px;
-  pointer-events: none;
-  z-index: 2;
-}
-
-
-
-
 .quickLinksItemBlue {
   color: var(--md-sys-color-primary);
   background-color: var(--md-sys-color-on-primary);
-}
 
-.quickLinksItemBlue:hover {
-  background-color: var(--md-sys-color-primary-container);
-  color: var(--md-sys-color-on-secondary-container);
+  &:hover {
+    color: var(--md-sys-color-on-secondary-container);
+    background-color: var(--md-sys-color-primary-container);
+  }
 }
 
 .quickLinksItemPurple {
   color: var(--md-sys-color-secondary);
   background-color: var(--md-sys-color-on-secondary);
-}
 
-.quickLinksItemPurple:hover {
-  background-color: var(--md-sys-color-secondary-container);
-  color: var(--md-sys-color-on-secondary-container);
+  &:hover {
+    color: var(--md-sys-color-on-secondary);
+    background-color: var(--md-sys-color-secondary-container);
+  }
 }
 
 .gameContainer {
@@ -216,7 +190,6 @@
   width: 100%;
   height: 100%;
 
-  /* Subtle balance: slight bloom for depth, but no blur */
   filter: var(--crt-bloom, contrast(1.05) brightness(1.08) saturate(1.05));
 }
 
@@ -225,14 +198,11 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-<<<<<<< Updated upstream
   border-radius: var(--border-radius-retro);
 
-  /* Premium Bezel/Arcade Frame */
   border: 12px solid #1a1a1a;
   border-radius: 40px;
   background-color: #000;
-=======
   transition: all 0.3s ease;
 
   background-color: var(--crt-frame-top, black);
@@ -241,32 +211,18 @@
   width: 100%;
   margin: 0 auto;
 
-  border-top: 0.75rem solid var(--crt-frame-top, #1a1a1a);
-  border-left: 4rem solid var(--crt-frame-side, #141414);
-  border-right: 4rem solid var(--crt-frame-side, #141414);
-  border-bottom: 0.75rem solid var(--crt-frame-top, #1a1a1a);
+  border-top: 0.75rem solid rgb(28 32 37);
+  border-left: 2rem solid rgb(16 20 24);
+  border-right: 2rem solid rgb(16 20 24);
+  border-bottom: 0.75rem solid rgb(28 32 37);
 
   border-radius: var(--border-radius-retro);
->>>>>>> Stashed changes
-
-  position: relative;
   overflow: hidden;
 
-<<<<<<< Updated upstream
-  /* Screen Bloom and Inset Depth */
-  box-shadow:
-    0 0 20px rgba(0, 0, 0, 0.5),
-    inset 0 0 50px rgba(0, 0, 0, 0.8),
-    inset 0 0 10px rgba(33, 150, 243, 0.1);
-
-  /* Subtle CRT Glow Filter */
-  filter: contrast(1.1) brightness(1.1) saturate(1.1);
-=======
   box-shadow:
     0 20px 40px rgba(0, 0, 0, 0.8),
     inset 0 10px 30px rgba(0, 0, 0, 1),
     inset 0 -10px 30px rgba(255, 255, 255, 0.05);
->>>>>>> Stashed changes
 }
 
 
@@ -283,7 +239,6 @@
   z-index: 1;
 }
 
-/* TOTAL GLOBAL CRT OPTICS: Shadow Mask & Grain */
 .screenArea::before {
   content: " ";
   display: block;
@@ -293,16 +248,12 @@
   bottom: 0;
   right: 0;
 
-  /* REMOVED GRAIN: Clean screen background */
   background: transparent;
 
   pointer-events: none;
-  /* Reduced flicker for image stability */
 }
 
 
-
-/* BALANCED Optics: Subtle Bulge + Slow Scanning Line */
 .screenArea::after {
   content: "";
   position: absolute;
@@ -312,13 +263,9 @@
   height: 100%;
 
   background:
-    /* Soft horizontal scanlines */
     linear-gradient(rgba(0, 0, 0, 0.1) 50%, transparent 50%),
-    /* Faint moving scanline for life */
     linear-gradient(rgba(255, 255, 255, 0.02) 0%, transparent 10%, transparent 90%, rgba(255, 255, 255, 0.02) 100%),
-    /* Gentle convex bulge simulation */
     radial-gradient(circle at center, transparent 20%, rgba(0, 0, 0, 0.25) 100%),
-    /* Subtle glass reflection */
     linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, transparent 50%, rgba(255, 255, 255, 0.01) 100%);
 
   background-size: 100% 4px, 100% 300%, cover, cover;
@@ -332,12 +279,6 @@
     inset 0 0 10px var(--crt-glow-bleed, rgba(33, 150, 243, 0.05));
 }
 
-
-
-
-
-/* Internal screen effects moved to .screenWrapper */
-
 .screenWrapper {
   position: relative;
   z-index: 1;
@@ -347,12 +288,6 @@
   display: block;
 }
 
-
-
-
-/* Removed Cabinet Controls and Marquee styles */
-
-/* Internal screen effects moved to .screenWrapper */
 
 @keyframes crtFlicker {
   0% {
@@ -450,7 +385,6 @@
   font-size: 2.5em;
   letter-spacing: 0.25em;
 
-  /* REMOVED BLUR: Focus on perfect legibility */
   filter: var(--crt-bloom, contrast(1.02) brightness(1.05) saturate(1.05));
 }
 
@@ -525,7 +459,6 @@
     font-weight: 500;
     cursor: pointer;
 
-    font-family: var(--default-font);
     font-size: 1.25rem;
     text-transform: none;
     background-color: var(--md-sys-color-surface-container);

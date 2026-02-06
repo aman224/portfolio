@@ -40,11 +40,10 @@
 
 
   --retro-grid-color: rgba(141, 53, 156, 0.502);
-  --retro-grid-glow: rgba(141, 53, 156, 0.502);
-  --retro-sky-top: rgba(141, 53, 156, 0.178);
+  --retro-grid-glow: rgba(141, 53, 156, 0.562);
+  --retro-sky-top: rgba(188, 71, 208, 0.219);
   --retro-sky-bottom: rgba(137, 49, 164, 0.146);
-  --retro-star-color: rgba(129, 129, 129, 0.8);
-
+  --retro-star-color: transparent;
   --background-image-default: url(/src/assets/background-light.webp);
 
   /* --crt-frame-top: #d4d4bc;

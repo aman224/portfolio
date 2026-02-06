@@ -13,12 +13,12 @@
 
   --container-padding: 1.5rem;
 
-  --default-font: "Google Sans Flex", "Roboto Flex", Roboto, Arial, sans-serif;
+  --default-font: "Google Sans Flex", Roboto, Arial, sans-serif;
 
-  --font-settings-title: "wdth" 145, "wght" 800;
-  --font-settings-title-sub: "wdth" 110, "wght" 600;
+  --font-settings-title: "wdth" 140, "wght" 900;
+  --font-settings-title-sub: "wdth" 105, "wght" 600;
   --font-settings-title-text: "wdth" 100, "wght" 475;
-  --font-settings-text: "wdth" 100, "wght" 400;
+  --font-settings-text: "wdth" 75, "wght" 600;
 
   --retro-blue: #1b1bcf;
   --retro-purple: #a647af;
