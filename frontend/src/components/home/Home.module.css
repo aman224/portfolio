@@ -209,15 +209,69 @@
   align-items: center;
   flex-direction: column;
   border-radius: var(--border-radius-retro);
-  border: 6px double var(--md-sys-color-primary-container);
-  box-shadow: inset 0px 0px 0.5em 0px var(--md-sys-color-primary-container),
-    0px 0px 0.5em 0px var(--md-sys-color-primary-container);
-  background-color: black;
-  color: white;
-  /* border-left: none;
-  border-right: none; */
+
+  /* Premium Bezel/Arcade Frame */
+  border: 12px solid #1a1a1a;
+  border-radius: 40px;
+  background-color: #000;
+
   position: relative;
   padding: 1.5rem;
+  overflow: hidden;
+
+  /* Screen Bloom and Inset Depth */
+  box-shadow:
+    0 0 20px rgba(0, 0, 0, 0.5),
+    inset 0 0 50px rgba(0, 0, 0, 0.8),
+    inset 0 0 10px rgba(33, 150, 243, 0.1);
+
+  /* Subtle CRT Glow Filter */
+  filter: contrast(1.1) brightness(1.1) saturate(1.1);
+}
+
+/* Scanlines Component */
+.pacmanContainer::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  z-index: 10;
+  background-size: 100% 4px, 3px 100%;
+  pointer-events: none;
+
+  animation: crtFlicker 0.15s infinite;
+}
+
+/* Vignette and Screen Curve Simulation */
+.pacmanContainer::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: radial-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.45) 100%);
+  z-index: 11;
+  pointer-events: none;
+}
+
+@keyframes crtFlicker {
+  0% {
+    opacity: 0.97;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.98;
+  }
 }
 
 .gameContainerSideContent {
