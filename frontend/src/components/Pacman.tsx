@@ -41,39 +41,42 @@ const Pacman: React.FC = () => {
 
     return (
         <div className={styles.pacmanContainer}>
-            {isLoading && (
-                <div className={styles.loadingOverlay}>
-                    <p>LOADING</p>
-                </div>
-            )}
-
-            <div style={{ visibility: isLoading ? 'hidden' : 'visible' }} className={styles.gameContainer}>
-                <div className={styles.gameContainerSideContent}>
-                    <div className={styles.oneUpContainer}>
-                        1UP
+            <div className={styles.screenArea}>
+                {isLoading && (
+                    <div className={styles.loadingOverlay}>
+                        <p>LOADING</p>
                     </div>
-                    <div >
-                        <img src={livesImage} />
-                    </div>
-                </div>
-                <div>
-                    <canvas
-                        ref={canvasRef}
-                    />
-                </div>
+                )}
 
-                <div className={styles.gameContainerSideContent} style={{ alignItems: 'start' }}>
-                    <div className={styles.scoreContainer}>
-                        {score}
+                <div style={{ visibility: isLoading ? 'hidden' : 'visible' }} className={styles.gameContainer}>
+                    <div className={styles.gameContainerSideContent}>
+                        <div className={styles.oneUpContainer}>
+                            1UP
+                        </div>
+                        <div >
+                            <img src={livesImage} />
+                        </div>
+                    </div>
+                    <div>
+                        <canvas
+                            ref={canvasRef}
+                        />
                     </div>
 
-                    <div className={styles.scoreContainer}>
-                        <img src={fruitImage} />
+                    <div className={styles.gameContainerSideContent} style={{ alignItems: 'start' }}>
+                        <div className={styles.scoreContainer}>
+                            {score}
+                        </div>
+
+                        <div className={styles.scoreContainer}>
+                            <img src={fruitImage} />
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     );
+
 };
 
 export default Pacman;
