@@ -11,6 +11,7 @@ const Pacman: React.FC = () => {
     const [isLoading, setIsLoading] = useState(true);
 
     const [score, setScore] = useState(0);
+    const [lives, setLives] = useState(2);
 
     useEffect(() => {
         if (canvasRef.current) {
@@ -24,6 +25,11 @@ const Pacman: React.FC = () => {
                 gameEngine.setScoreCallback((newScore) => {
                     setScore(newScore);
                 });
+
+                gameEngine.setLivesCallback((newLives) => {
+                    setLives(newLives);
+                });
+
                 gameEngine.start().then(() => {
                     setIsLoading(false);
                 }).catch(console.error);
@@ -53,8 +59,10 @@ const Pacman: React.FC = () => {
                         <div className={styles.oneUpContainer}>
                             1UP
                         </div>
-                        <div >
-                            <img src={livesImage} />
+                        <div className={styles.livesContainer}>
+                            {[...Array(lives)].map((_, i) => (
+                                <img key={i} src={livesImage} alt="Life" />
+                            ))}
                         </div>
                     </div>
                     <div>

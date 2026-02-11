@@ -10,6 +10,7 @@ import { generatePellets } from "../utils/pelletUtils";
 
 import mazeImageUrl from "/src/assets/Maze_V2.png";
 import pacmanImageUrl from "/src/assets/Pacman.png";
+import pacmanDyingUrl from "/src/assets/PacmanDying.png";
 
 import ghostImageUrl from "/src/assets/Ghost.png";
 
@@ -24,11 +25,16 @@ export default class GameEngine {
   private ghosts: Ghost[] = [];
   private animationId: number;
   private score: number = 0;
+  private lives: number = 2;
   private onScoreChange: ((score: number) => void) | null = null;
+  private onLivesChange: ((lives: number) => void) | null = null;
+  private playerSprites: any;
+  private deathSprites: any;
+  private ghostSpritesList: any[] = [];
+  private isDying: boolean = false;
 
   constructor(canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D) {
     this.canvas = canvas;
-    this.ctx = ctx;
     this.ctx = ctx;
     this.boundaries = generateBoundaries();
     this.pellets = [];
@@ -39,12 +45,21 @@ export default class GameEngine {
     this.onScoreChange = callback;
   }
 
+  public setLivesCallback(callback: (lives: number) => void) {
+    this.onLivesChange = callback;
+  }
+
   async start() {
-    const [mazeImage, playerSprites, ghostSpritesList] = await Promise.all([
+    const [mazeImage, playerSprites, ghostSpritesList, deathSprites] = await Promise.all([
       this.loadImage(mazeImageUrl),
       this.loadPlayerSprites(),
       this.loadGhostSprites(),
+      this.loadImage(pacmanDyingUrl)
     ]);
+
+    this.playerSprites = playerSprites;
+    this.ghostSpritesList = ghostSpritesList;
+    this.deathSprites = deathSprites;
 
     this.pellets = generatePellets();
 
@@ -53,16 +68,28 @@ export default class GameEngine {
       position: { x: MAZE_OFFSET_X, y: MAZE_OFFSET_Y },
     });
 
+    this.initEntities();
+
+    this.configCanvas(
+      mazeImage.width + MAZE_OFFSET_X,
+      mazeImage.height + MAZE_OFFSET_Y
+    );
+
+    this.animate();
+  }
+
+  private initEntities() {
     this.player = new Player({
-      image: playerSprites.right,
+      image: this.playerSprites.right,
       position: { x: TILE_SIZE + MAZE_OFFSET_X, y: TILE_SIZE + MAZE_OFFSET_Y },
       frames: { max: 2 },
       boundaries: this.boundaries,
       velocity: { x: 0, y: 0 },
-      sprites: playerSprites,
+      sprites: this.playerSprites,
+      deathSprites: this.deathSprites
     });
 
-    this.ghosts = ghostSpritesList.map((ghostSprites, index) => {
+    this.ghosts = this.ghostSpritesList.map((ghostSprites, index) => {
       const row = Math.floor(index / 2);
       const col = index % 2;
 
@@ -93,24 +120,31 @@ export default class GameEngine {
 
       return ghost;
     });
-
-    this.configCanvas(
-      mazeImage.width + MAZE_OFFSET_X,
-      mazeImage.height + MAZE_OFFSET_Y
-    );
-
-    this.animate();
   }
 
   animate = (): void => {
     this.animationId = window.requestAnimationFrame(this.animate);
     this.background.render(this.ctx);
 
+    if (this.lives <= 0) {
+      this.ctx.fillStyle = 'white';
+      this.ctx.font = '20px "Press Start 2P"';
+      const gameOverText = "GAME OVER";
+      const gameOverMetrics = this.ctx.measureText(gameOverText);
+      this.ctx.fillText(gameOverText, this.canvas.width / 2 - gameOverMetrics.width / 2, this.canvas.height / 2 + 65);
+
+      this.ctx.font = '10px "Press Start 2P"';
+      const restartText = "Press ENTER to Restart";
+      const restartMetrics = this.ctx.measureText(restartText);
+      this.ctx.fillText(restartText, this.canvas.width / 2 - restartMetrics.width / 2, this.canvas.height / 2 + 75);
+      return;
+    }
+
     for (let i = this.pellets.length - 1; i >= 0; i--) {
       const pellet = this.pellets[i];
       pellet.render(this.ctx);
 
-      if (
+      if (!this.isDying &&
         Math.hypot(
           pellet.position.x - this.player.position.x,
           pellet.position.y - this.player.position.y
@@ -128,13 +162,51 @@ export default class GameEngine {
     this.player.update();
     this.player.render(this.ctx);
 
-    this.ghosts.forEach(ghost => {
+    if (this.isDying) return;
+
+    for (let i = this.ghosts.length - 1; i >= 0; i--) {
+      const ghost = this.ghosts[i];
       ghost.update();
       ghost.render(this.ctx);
-    });
+
+      if (
+        Math.hypot(
+          ghost.position.x - this.player.position.x,
+          ghost.position.y - this.player.position.y
+        ) <
+        ghost.width / 2 + this.player.width / 2
+      ) {
+        this.handlePacmanDeath();
+      }
+    }
   };
 
+  handlePacmanDeath() {
+    this.isDying = true;
+
+    this.player.playDeathAnimation(() => {
+      this.lives -= 1;
+      if (this.onLivesChange) {
+        this.onLivesChange(this.lives);
+      }
+
+      if (this.lives > 0) {
+        this.initEntities();
+        this.isDying = false;
+      } else {
+        this.isDying = false;
+      }
+    });
+  }
+
   updatePlayerDirection = (e: KeyboardEvent): void => {
+    if (this.lives <= 0) {
+      if (e.key === "Enter") {
+        this.restartGame();
+      }
+      return;
+    }
+
     if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(e.key)) {
       e.preventDefault();
     }
@@ -149,6 +221,17 @@ export default class GameEngine {
       this.player.setNextDirection("R");
     }
   };
+
+  restartGame() {
+    this.lives = 3;
+    this.score = 0;
+    this.pellets = generatePellets();
+
+    if (this.onLivesChange) this.onLivesChange(this.lives);
+    if (this.onScoreChange) this.onScoreChange(this.score);
+
+    this.initEntities();
+  }
 
   private loadImage(src: string): Promise<HTMLImageElement> {
     return new Promise((resolve, reject) => {
@@ -169,12 +252,8 @@ export default class GameEngine {
 
     const cols = 8;
     const spriteWidth = image.width / cols;
-    const spriteHeight = image.height; // Single row
+    const spriteHeight = image.height;
 
-    // Right: cols 0,1
-    // Left: cols 2,3
-    // Up: cols 4,5
-    // Down: cols 6,7
     const [right, left, up, down] = await Promise.all([
       createImageBitmap(image, 0 * spriteWidth, 0, 2 * spriteWidth, spriteHeight),
       createImageBitmap(image, 2 * spriteWidth, 0, 2 * spriteWidth, spriteHeight),
@@ -195,7 +274,6 @@ export default class GameEngine {
   private async loadGhostSprites() {
     const image = await this.loadImage(ghostImageUrl);
 
-    // Updated to 4 rows for 4 ghosts
     const rows = 4;
     const cols = 8;
     const spriteWidth = image.width / cols;
@@ -204,14 +282,7 @@ export default class GameEngine {
     const ghostSets = [];
 
     for (let i = 0; i < rows; i++) {
-      // Row i
-      // Right: cols 0,1
-      // Left: cols 2,3
-      // Up: cols 4,5
-      // Down: cols 6,7
 
-      // Use createImageBitmap to slice. It should be available in browser env.
-      // Input: (image, sx, sy, sw, sh)
       const [right, left, up, down] = await Promise.all([
         createImageBitmap(image, 0 * spriteWidth, i * spriteHeight, 2 * spriteWidth, spriteHeight),
         createImageBitmap(image, 2 * spriteWidth, i * spriteHeight, 2 * spriteWidth, spriteHeight),

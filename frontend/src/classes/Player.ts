@@ -21,6 +21,11 @@ export default class Player extends Sprite {
   private direction: string | null;
   private boundaries: Boundary[];
   private nextDirection: string | null;
+  private deathSprites?: HTMLImageElement | HTMLCanvasElement | ImageBitmap;
+  private isDying: boolean = false;
+  private deathAnimationIndex: number = 0;
+  private deathAnimationElapsed: number = 0;
+  private onDeathAnimationComplete: (() => void) | null = null;
   private sprites: {
     up: HTMLImageElement | HTMLCanvasElement | ImageBitmap;
     down: HTMLImageElement | HTMLCanvasElement | ImageBitmap;
@@ -32,8 +37,9 @@ export default class Player extends Sprite {
     boundaries = [],
     velocity = { x: 0, y: 0 },
     sprites,
+    deathSprites,
     ...options
-  }: PlayerConstructor) {
+  }: PlayerConstructor & { deathSprites?: HTMLImageElement | HTMLCanvasElement | ImageBitmap }) {
     super(options);
 
     this.velocity = velocity;
@@ -41,9 +47,58 @@ export default class Player extends Sprite {
     this.boundaries = boundaries;
     this.nextDirection = null;
     this.sprites = sprites;
+    this.deathSprites = deathSprites;
+  }
+
+  playDeathAnimation(onComplete: () => void) {
+    if (!this.deathSprites) {
+      onComplete();
+      return;
+    }
+    this.isDying = true;
+    this.deathAnimationIndex = 0;
+    this.deathAnimationElapsed = 0;
+    this.onDeathAnimationComplete = onComplete;
+    this.image = this.deathSprites;
+  }
+
+  render(ctx: CanvasRenderingContext2D) {
+    if (this.isDying && this.deathSprites) {
+      const spriteSize = 24;
+
+      ctx.drawImage(
+        this.deathSprites,
+        this.deathAnimationIndex * spriteSize,
+        0,
+        spriteSize,
+        spriteSize,
+        this.position.x,
+        this.position.y,
+        this.width,
+        this.height
+      );
+
+      this.deathAnimationElapsed++;
+      if (this.deathAnimationElapsed % 8 === 0) {
+        this.deathAnimationIndex++;
+        if (this.deathAnimationIndex >= 11) {
+          this.isDying = false;
+          if (this.onDeathAnimationComplete) {
+            this.onDeathAnimationComplete();
+          }
+        }
+      }
+      return;
+    }
+
+    super.render(ctx);
   }
 
   update() {
+    if (this.isDying) {
+      return;
+    }
+
     if (this.nextDirection && this.isAlignedWithGrid()) {
       this.tryChangeDirection();
     }
@@ -55,12 +110,9 @@ export default class Player extends Sprite {
     this.position.x += this.velocity.x;
     this.position.y += this.velocity.y;
 
-    // Screen Wrapping
-    // If x < -TILE_SIZE, wrap to right
     if (this.position.x < -TILE_SIZE) {
       this.position.x = MAP_WIDTH * TILE_SIZE;
     }
-    // If x > MAP_WIDTH * TILE_SIZE, wrap to left
     else if (this.position.x > MAP_WIDTH * TILE_SIZE) {
       this.position.x = -TILE_SIZE;
     }
@@ -131,6 +183,7 @@ export default class Player extends Sprite {
   }
 
   setNextDirection(direction: string | null) {
+    if (this.isDying) return;
     this.moving = true;
     this.nextDirection = direction;
   }

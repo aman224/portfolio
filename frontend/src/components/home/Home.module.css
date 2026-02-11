@@ -213,6 +213,11 @@
   overflow: hidden;
 }
 
+.livesContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .screenArea {
   position: relative;
