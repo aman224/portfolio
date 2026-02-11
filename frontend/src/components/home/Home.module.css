@@ -359,6 +359,7 @@
 }
 
 .loadingOverlay {
+  font-family: "Press Start 2P";
   position: absolute;
   top: 0;
   left: 0;
