@@ -16,9 +16,9 @@
   --default-font: "Google Sans Flex", Roboto, Arial, sans-serif;
 
   --font-settings-title: "wdth" 140, "wght" 900;
-  --font-settings-title-sub: "wdth" 105, "wght" 600;
+  --font-settings-title-sub: "wdth" 90, "wght" 600;
   --font-settings-title-text: "wdth" 100, "wght" 475;
-  --font-settings-text: "wdth" 75, "wght" 600;
+  --font-settings-text: "wdth" 100, "wght" 600;
 
   --retro-blue: #1b1bcf;
   --retro-purple: #a647af;

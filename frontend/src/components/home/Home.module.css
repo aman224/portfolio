@@ -8,6 +8,7 @@
   flex-direction: column;
   text-align: center;
   gap: 2rem;
+  justify-content: space-evenly;
 
   border-radius: var(--border-radius-retro);
 
@@ -47,7 +48,7 @@
 .retroBackground::after {
   content: "";
   position: absolute;
-  top: 30%;
+  top: 80%;
   left: 0;
   width: 100%;
   height: 100%;
@@ -95,7 +96,7 @@
 .header {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .headerTitle {
@@ -115,7 +116,7 @@
 .headerSubTitleName {
   text-transform: capitalize;
   color: var(--md-sys-color-secondary-container);
-  font-variation-settings: "wdth" 115, "wght" 800;
+  font-variation-settings: "wdth" 100, "wght" 600;
 }
 
 .headerText {
@@ -199,10 +200,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  border-radius: var(--border-radius-retro);
 
-  border: 12px solid #1a1a1a;
-  border-radius: 40px;
   background-color: #000;
   transition: all 0.3s ease;
 
@@ -212,17 +210,7 @@
   width: 100%;
   margin: 0 auto;
 
-  border-top: 0.75rem solid rgb(28 32 37);
-  border-left: 2rem solid rgb(16 20 24);
-  border-right: 2rem solid rgb(16 20 24);
-  border-bottom: 0.75rem solid rgb(28 32 37);
-
-  border-radius: var(--border-radius-retro);
   overflow: hidden;
-
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8),
-    inset 0 10px 30px rgba(0, 0, 0, 1),
-    inset 0 -10px 30px rgba(255, 255, 255, 0.05);
 }
 
 

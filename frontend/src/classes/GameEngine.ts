@@ -8,19 +8,16 @@ import { MAZE_OFFSET_X, MAZE_OFFSET_Y, TILE_SIZE } from "../constants";
 import { generateBoundaries } from "../utils/collisionUtils";
 import { generatePellets } from "../utils/pelletUtils";
 
-import mazeImageUrl from "/src/assets/PacmanTMP50_Cyan.png";
+import mazeImageUrl from "/src/assets/Maze_V2.png";
 import pacmanImageUrl from "/src/assets/Pacman.png";
 
 import ghostImageUrl from "/src/assets/Ghost.png";
 
 
-import { ghostCollisions } from "../data/ghost_collisions";
-
 export default class GameEngine {
   private canvas: HTMLCanvasElement;
   private ctx: CanvasRenderingContext2D;
   private boundaries: Boundary[];
-  private ghostBoundaries: Boundary[];
   private pellets: Pellet[];
   private background!: Sprite;
   private player!: Player;
@@ -34,7 +31,6 @@ export default class GameEngine {
     this.ctx = ctx;
     this.ctx = ctx;
     this.boundaries = generateBoundaries();
-    this.ghostBoundaries = generateBoundaries(ghostCollisions);
     this.pellets = [];
     this.animationId = 0;
   }
@@ -70,8 +66,8 @@ export default class GameEngine {
       const row = Math.floor(index / 2);
       const col = index % 2;
 
-      const spawnX = (57 + col * 6) * TILE_SIZE + MAZE_OFFSET_X;
-      const spawnY = (12 + row * 2) * TILE_SIZE + MAZE_OFFSET_Y;
+      const spawnX = (99 + col * 6) * TILE_SIZE + MAZE_OFFSET_X;
+      const spawnY = (6 + row * 2) * TILE_SIZE + MAZE_OFFSET_Y;
 
       const ghost = new Ghost({
         image: ghostSprites.right,
@@ -81,14 +77,14 @@ export default class GameEngine {
           y: spawnY
         },
         velocity: { x: 0, y: 0 },
-        boundaries: this.ghostBoundaries,
+        boundaries: this.boundaries,
         sprites: ghostSprites,
         speed: 1.5,
         startDelay: 3000
       });
 
-      const safeExitX = 60 * TILE_SIZE + MAZE_OFFSET_X;
-      const exitY = 11 * TILE_SIZE + MAZE_OFFSET_Y;
+      const safeExitX = 102 * TILE_SIZE + MAZE_OFFSET_X;
+      const exitY = 5 * TILE_SIZE + MAZE_OFFSET_Y;
 
       ghost.setWaypoints([
         { x: safeExitX, y: spawnY },

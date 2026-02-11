@@ -20,7 +20,7 @@ function Home() {
 
           <div className={styles.headerText}>
             <p>
-              <span className={styles.headerSubTitleName}>Hey, I'm Aman - </span>A software engineer focused on building scalable cloud applications and solving real-world technical challenges.
+              <span className={styles.headerSubTitleName}><span>Hey, I'm Aman</span> - </span>A software engineer focused on building scalable cloud applications and solving real-world technical challenges.
             </p>
           </div>
         </div>
